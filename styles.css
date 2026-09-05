@@ -9,7 +9,7 @@
     --muted:     #ada492;
     --crimson:   #c8262f;
     --crimson-d: #8e1a20;
-    --gold:      #c9a86a;
+    --gold:      var(--cream);
     --shadow:    0 24px 60px rgba(0,0,0,.55);
     --serif:     "Didot", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
     --sans:      "Segoe UI", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -365,24 +365,58 @@
   .pull .from { margin-top: 30px; letter-spacing: .35em; text-transform: uppercase; font-size: 12px; color: var(--gold); }
 
   /* ---------- Contact ---------- */
-  .contact { background: var(--bg-2); border-top: 1px solid var(--line); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-  .contact h2 { font-family: "Arial Black", "Helvetica Neue", Impact, sans-serif; font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 4.4vw, 60px); color: var(--cream); line-height: .92; letter-spacing: -.02em; }
-  .contact .lead { color: var(--cream-dim); margin-top: 18px; font-size: 16.5px; }
-  .contact .detail { margin-top: 30px; display: grid; gap: 14px; }
-  .contact .detail div { display: flex; gap: 14px; align-items: baseline; color: var(--cream-dim); font-size: 14.5px; letter-spacing: .04em; }
-  .contact .detail .k { color: var(--gold); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; min-width: 84px; }
+  .contact {
+    background: linear-gradient(135deg, #09090c 0%, #171015 50%, #0c0a0e 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 2px solid var(--crimson);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-box {
+    background: rgba(18, 18, 23, 0.7);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 50px 44px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.7);
+    position: relative;
+    z-index: 2;
+  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px; align-items: start; }
+  .contact-info { border-left: 3px solid var(--crimson); padding-left: 26px; }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(34px, 4vw, 54px);
+    color: var(--cream);
+    line-height: 1.02;
+    letter-spacing: -.01em;
+  }
+  .contact .lead { color: var(--cream-dim); margin-top: 18px; font-size: 15.5px; line-height: 1.6; }
+  .contact .detail { margin-top: 30px; display: grid; gap: 14px; border-top: 1px solid var(--line); padding-top: 22px; }
+  .contact .detail div { display: flex; gap: 16px; align-items: baseline; color: var(--cream-dim); font-size: 14.5px; letter-spacing: .02em; }
+  .contact .detail .k { color: var(--gold); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; min-width: 80px; }
 
-  form { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 34px; }
-  form .field { margin-bottom: 18px; }
+  form {
+    background: rgba(24, 24, 28, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 34px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.5);
+  }
+  form .field { margin-bottom: 20px; }
   form label { display: block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--cream-dim); margin-bottom: 8px; }
   form input, form select, form textarea {
-    width: 100%; background: var(--bg); border: 1px solid var(--line); color: var(--cream);
-    padding: 13px 14px; border-radius: 3px; font-family: var(--sans); font-size: 14.5px; transition: border-color .25s;
+    width: 100%; background: #0a0a0d; border: 1px solid var(--line); color: var(--cream);
+    padding: 13px 15px; border-radius: 4px; font-family: var(--sans); font-size: 14.5px; transition: all .25s ease;
   }
-  form input:focus, form select:focus, form textarea:focus { outline: none; border-color: var(--crimson); }
-  form textarea { resize: vertical; min-height: 92px; }
-  form .btn-crimson { width: 100%; padding: 15px; margin-top: 6px; }
+  form input:focus, form select:focus, form textarea:focus {
+    outline: none; border-color: var(--crimson); box-shadow: 0 0 16px rgba(200,38,47,.25); background: #0d0d12;
+  }
+  form textarea { resize: vertical; min-height: 96px; }
+  form .btn-crimson { width: 100%; padding: 16px; margin-top: 6px; font-weight: 600; letter-spacing: .22em; box-shadow: 0 8px 24px rgba(200,38,47,.35); }
+  form .btn-crimson:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,38,47,.5); }
   .form-note { font-size: 12px; color: var(--muted); margin-top: 14px; text-align: center; }
   .form-ok {
     display: none; text-align: center; padding: 40px 20px;
