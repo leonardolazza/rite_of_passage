@@ -1,0 +1,23 @@
+# Virtual Environments
+.rembg-venv/
+venv/
+.venv/
+env/
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs and caches
+*.log
+__pycache__/
