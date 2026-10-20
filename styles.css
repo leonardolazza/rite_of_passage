@@ -829,15 +829,15 @@
     animation: pullSlideLoop 15s infinite;
   }
   .pull-s1 {
-    background-image: url("/assets/escenarios/escenario_1.webp");
+    background-image: url("assets/escenarios/escenario_1.webp");
     animation-delay: 0s;
   }
   .pull-s2 {
-    background-image: url("/assets/escenarios/escenario_2.webp");
+    background-image: url("assets/escenarios/escenario_2.webp");
     animation-delay: 5s;
   }
   .pull-s3 {
-    background-image: url("/assets/escenarios/escenario_3.webp");
+    background-image: url("assets/escenarios/escenario_3.webp");
     animation-delay: 10s;
   }
   @keyframes pullSlideLoop {

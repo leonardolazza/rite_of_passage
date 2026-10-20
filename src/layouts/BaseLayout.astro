@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileDrawer from '../components/MobileDrawer.astro';
 import { siteConfig } from '../data/siteConfig';
+import { assetUrl } from '../utils/paths';
 
 interface Props {
   title?: string;
@@ -26,7 +27,7 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="icon" href={assetUrl("/assets/favicon.png")} type="image/png" />
 
   {isEditorial && (
     <>
@@ -39,15 +40,15 @@ const {
 
   <!-- Core Stylesheets (100% Pixel-Perfect Match with original index.html & joah.html) -->
   {isEditorial ? (
-    <link rel="stylesheet" href="/joah.css" />
+    <link rel="stylesheet" href={assetUrl("/joah.css")} />
   ) : (
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href={assetUrl("/styles.css")} />
   )}
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
+  <meta property="og:image" content={assetUrl(ogImage)} />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>

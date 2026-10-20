@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { artists, type ArtistProfile } from '../../data/artists';
 import { siteConfig } from '../../data/siteConfig';
+import { assetUrl } from '../../utils/paths';
 
 export async function getStaticPaths() {
   return artists.map(artist => ({
@@ -46,8 +47,8 @@ const { artist } = Astro.props;
       <!-- CINEMATIC CROSSFADE SLIDESHOW -->
       <div class="hero-crossfade-stage" id="heroCrossfadeStage">
         {artist.slideshow.map((slideSrc, idx) => (
-          <div class={`hero-slide ${idx === 0 ? 'active' : ''}`} data-src={slideSrc}>
-            <img src={slideSrc} alt={`${artist.name} ${idx + 1}`} fetchpriority={idx === 0 ? "high" : "auto"} loading={idx === 0 ? "eager" : "lazy"} decoding="async" />
+          <div class={`hero-slide ${idx === 0 ? 'active' : ''}`} data-src={assetUrl(slideSrc)}>
+            <img src={assetUrl(slideSrc)} alt={`${artist.name} ${idx + 1}`} fetchpriority={idx === 0 ? "high" : "auto"} loading={idx === 0 ? "eager" : "lazy"} decoding="async" />
           </div>
         ))}
 
@@ -62,7 +63,7 @@ const { artist } = Astro.props;
   </section>
 
   <!-- MANIFIESTO ARTÍSTICO -->
-  <section class="section-manifesto" style={`background-image: linear-gradient(180deg, rgba(7, 7, 9, 0.88) 0%, rgba(7, 7, 9, 0.68) 50%, rgba(7, 7, 9, 0.96) 100%), radial-gradient(circle at center, rgba(128, 14, 46, 0.48) 0%, transparent 80%), url('${artist.manifestoBg}');`}>
+  <section class="section-manifesto" style={`background-image: linear-gradient(180deg, rgba(7, 7, 9, 0.88) 0%, rgba(7, 7, 9, 0.68) 50%, rgba(7, 7, 9, 0.96) 100%), radial-gradient(circle at center, rgba(128, 14, 46, 0.48) 0%, transparent 80%), url('${assetUrl(artist.manifestoBg)}');`}>
     <div class="manifesto-title">
       “{artist.quote}”
     </div>
@@ -89,7 +90,7 @@ const { artist } = Astro.props;
       {artist.formats.map((fmt) => (
         <div class="fmt-card">
           <div class="fmt-card-bg">
-            <img src={fmt.image} alt={fmt.title} loading="lazy" decoding="async" />
+            <img src={assetUrl(fmt.image)} alt={fmt.title} loading="lazy" decoding="async" />
           </div>
           <div class="fmt-card-overlay"></div>
           <div class="fmt-card-num">{fmt.number}</div>
@@ -184,7 +185,7 @@ const { artist } = Astro.props;
           <div class="phone-island"><div class="phone-camera"></div></div>
           <div class="phone-glass-glare"></div>
           <div class="phone-screen">
-            <img src={artist.instagram.mockupImage} alt={`Instagram ${artist.name}`} loading="lazy" decoding="async" />
+            <img src={assetUrl(artist.instagram.mockupImage)} alt={`Instagram ${artist.name}`} loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

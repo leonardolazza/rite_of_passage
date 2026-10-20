@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { assetUrl, siteLink } from '../utils/paths';
 
 interface Props {
   currentPath?: string;
@@ -11,13 +12,13 @@ const { currentPath = '/', isEditorial = false } = Astro.props;
 
 {isEditorial ? (
   <header class="editorial-header">
-    <a href="/#team" class="back-link">← Volver</a>
+    <a href={siteLink("/#team")} class="back-link">← Volver</a>
     <a href="#" class="brand-logo">JOA LAMTZEV</a>
   </header>
 ) : (
   <header id="hdr">
     <a class="brand" href="#top" aria-label={`${siteConfig.name} home`}>
-      <img src="/assets/logo_icon.png" alt={`${siteConfig.name} emblem`} />
+      <img src={assetUrl("/assets/logo_icon.png")} alt={`${siteConfig.name} emblem`} />
       <span class="name">{siteConfig.name}</span>
     </a>
     <nav class="top">

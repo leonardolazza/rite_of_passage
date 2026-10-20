@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { assetUrl, siteLink } from '../utils/paths';
 
 interface Props {
   isEditorial?: boolean;
@@ -22,7 +23,7 @@ const { isEditorial = false } = Astro.props;
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <img src="/assets/logo_icon.png" alt={siteConfig.name} />
+          <img src={assetUrl("/assets/logo_icon.png")} alt={siteConfig.name} />
           <div>
             <div class="t">{siteConfig.name}</div>
             <div class="s">Bespoke Events</div>
@@ -46,9 +47,9 @@ const { isEditorial = false } = Astro.props;
           </a>
         </div>
         <nav class="foot-links">
-          <a href="/#experiences">Experiencias</a>
-          <a href="/#philosophy">Filosofía</a>
-          <a href="/#contact">Contacto</a>
+          <a href={siteLink("/#experiences")}>Experiencias</a>
+          <a href={siteLink("/#philosophy")}>Filosofía</a>
+          <a href={siteLink("/#contact")}>Contacto</a>
         </nav>
       </div>
       <p class="foot-base">© {`${new Date().getFullYear()} ${siteConfig.name}`} · Todos los derechos reservados.</p>
