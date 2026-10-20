@@ -1,0 +1,92 @@
+---
+---
+
+<!-- QUIÉNES SOMOS (STORYLINE CON RIEL DE FUEGO & SCROLL REVEAL) -->
+<section class="about section-pad" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal about-head-center">
+      <h2 class="about-title-crimson">Quiénes Somos</h2>
+    </div>
+
+    <div class="story-timeline" id="storyTimeline">
+      <!-- Riel dinámico que se forma al hacer scroll -->
+      <div class="story-line-track">
+        <div class="story-line-fill" id="storyLineFill"></div>
+      </div>
+
+      <!-- ITEM 01 -->
+      <div class="story-item reveal">
+        <div class="story-node">01</div>
+        <button class="story-media shot" type="button" data-full="/assets/escenario_6.webp" aria-label="Ver escenario en grande">
+          <img src="/assets/escenario_6.webp" alt="Atelier Bespoke — Diseñamos ritos" loading="lazy" decoding="async" width="1920" height="1280" />
+        </button>
+        <div class="story-text">
+          <span class="story-tag">01 // EXPERIENCIAS </span>
+          <h3 class="story-title">Diseñamos <span class="accent">ritos</span>, no eventos</h3>
+          <p class="story-lead">
+            No armamos fiestas: construimos el instante en que alguien cruza de quien era a quien va a ser.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 02 -->
+      <div class="story-item reverse reveal">
+        <div class="story-node">02</div>
+        <button class="story-media shot" type="button" data-full="/assets/escenario_5.webp" aria-label="Ver escenario en grande">
+          <img src="/assets/escenario_5.webp" alt="Visión Única — Cada velada es bespoke" loading="lazy" decoding="async" width="1920" height="1280" />
+        </button>
+        <div class="story-text">
+          <span class="story-tag">02 // CURADURIA VANGUARDISTA</span>
+          <h3 class="story-title">Cada velada es <span class="accent">una experiencia sonora unica</span></h3>
+          <p class="story-lead">
+            Atmósferas íntimas con sonido seleccionado enfocadas en lograr una <span class="accent">inmersión garantizada.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 03 -->
+      <div class="story-item reveal">
+        <div class="story-node">03</div>
+        <button class="story-media shot" type="button" data-full="/assets/escenario_4.webp" aria-label="Ver escenario en grande">
+          <img src="/assets/escenario_4.webp" alt="El Instante Cumbre — Nuestro Objetivo" loading="lazy" decoding="async" width="1920" height="1280" />
+        </button>
+        <div class="story-text">
+          <span class="story-tag">03 // EL INSTANTE CUMBRE</span>
+          <h3 class="story-title">Nuestro <span class="accent">Objetivo</span></h3>
+          <p class="story-lead story-goal">
+            Dejá atrás lo terrenal: diseñamos experiencias acústicas inmersivas que se sienten en el cuerpo y <span class="accent">se quedan en el alma.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const timelineEl = document.getElementById('storyTimeline');
+  const lineFillEl = document.getElementById('storyLineFill');
+  let tickingLine = false;
+
+  function updateStoryLine() {
+    if (!timelineEl || !lineFillEl) return;
+    const rect = timelineEl.getBoundingClientRect();
+    const winH = window.innerHeight;
+    const startPoint = winH * 0.75;
+    const totalH = rect.height;
+    const current = (startPoint - rect.top) / totalH;
+    const progress = Math.min(Math.max(current, 0), 1);
+    lineFillEl.style.height = (progress * 100) + '%';
+    tickingLine = false;
+  }
+
+  function requestStoryLineUpdate() {
+    if (!tickingLine) {
+      window.requestAnimationFrame(updateStoryLine);
+      tickingLine = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestStoryLineUpdate, { passive: true });
+  window.addEventListener('resize', requestStoryLineUpdate, { passive: true });
+  updateStoryLine();
+</script>

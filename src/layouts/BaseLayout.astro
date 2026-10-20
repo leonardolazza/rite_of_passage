@@ -1,0 +1,139 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  isEditorial?: boolean;
+}
+
+const {
+  title = `${siteConfig.name} — ${siteConfig.tagline}`,
+  description = `${siteConfig.name} — ${siteConfig.sub}`,
+  ogImage = '/assets/hero_poster.webp',
+  isEditorial = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+
+  {isEditorial && (
+    <>
+      <!-- Google Fonts Preconnect & Subsets (Only for Editorial Artist Page) -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    </>
+  )}
+
+  <!-- Core Stylesheets (100% Pixel-Perfect Match with original index.html & joah.html) -->
+  {isEditorial ? (
+    <link rel="stylesheet" href="/joah.css" />
+  ) : (
+    <link rel="stylesheet" href="/styles.css" />
+  )}
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class={isEditorial ? "joah-page" : ""}>
+
+  <Header isEditorial={isEditorial} />
+  {!isEditorial && <MobileDrawer />}
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer isEditorial={isEditorial} />
+
+  <script>
+    // Header shrink on scroll
+    const hdr = document.getElementById('hdr');
+    if (hdr) {
+      const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // Mobile Drawer Navigation (Editorial Luxury)
+    const toggle = document.getElementById('menuToggle');
+    const drawer = document.getElementById('mobileDrawer');
+    const closeBtn = document.getElementById('drawerClose');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const links = document.querySelectorAll('.mobile-link');
+
+    if (toggle && drawer) {
+      function openDrawer() {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        toggle.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('drawer-open');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('drawer-open');
+      }
+
+      toggle.addEventListener('click', () => {
+        const isOpen = drawer.classList.contains('open');
+        if (isOpen) closeDrawer();
+        else openDrawer();
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+      links.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) {
+          closeDrawer();
+        }
+      });
+    }
+
+    // Reveal on scroll (bidireccional continuo: anima al bajar y al subir)
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+          } else {
+            const r = e.boundingClientRect;
+            if (r.top > window.innerHeight || r.bottom < 0) {
+              e.target.classList.remove('in');
+            }
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('in'));
+    }
+  </script>
+</body>
+</html>

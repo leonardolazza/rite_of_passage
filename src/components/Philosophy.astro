@@ -1,0 +1,36 @@
+---
+---
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="pwrap" id="philField">
+    <div class="kicker">Filosofía</div>
+    <p class="quote">
+      El rito<br>
+      es el <span class="accent">umbral</span> entre<br>
+      <span class="out who-past">quien eras</span><br>
+      y <span class="who-future">quien serás</span>
+    </p>
+    <div class="rule"></div>
+    <p class="attr">Diseñamos el instante en que lo cruzas</p>
+  </div>
+</section>
+
+<script>
+  // Philosophy — vendaval de brasas (partículas carmesí difuminadas)
+  const f = document.getElementById('philField');
+  if (f) {
+    const N = 28;
+    for (let i = 0; i < N; i++) {
+      const e = document.createElement('span');
+      e.className = 'ember';
+      const s = 3 + Math.random() * 7;
+      e.style.width = e.style.height = s + 'px';
+      e.style.left = (Math.random() * 92 + 3) + '%';
+      e.style.top = (Math.random() * 78 + 14) + '%';
+      e.style.animationDuration = (3.5 + Math.random() * 4) + 's';
+      e.style.animationDelay = (-Math.random() * 6) + 's';
+      f.appendChild(e);
+    }
+  }
+</script>

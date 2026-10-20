@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Philosophy from '../components/Philosophy.astro';
+import StoryTimeline from '../components/StoryTimeline.astro';
+import Lightbox from '../components/Lightbox.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import SocialSection from '../components/SocialSection.astro';
+import TeamSection from '../components/TeamSection.astro';
+import PullQuote from '../components/PullQuote.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title={`${siteConfig.name} — ${siteConfig.tagline}`}
+  description={`${siteConfig.name} — ${siteConfig.sub}`}
+  ogImage="/assets/hero_poster.webp"
+>
+  <Hero />
+  <Philosophy />
+  <StoryTimeline />
+  <Lightbox />
+  <ServicesSection />
+  <SocialSection />
+  <TeamSection />
+  <PullQuote />
+  <ContactSection />
+</BaseLayout>

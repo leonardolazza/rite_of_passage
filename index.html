@@ -16,24 +16,64 @@
       <span class="name">Rite of Passage</span>
     </a>
     <nav class="top">
-      <a class="link" href="#experiences">Experiencias</a>
       <a class="link" href="#philosophy">Filosofía</a>
-      <a class="link" href="#contact">Contacto</a>
+      <a class="link" href="#about">Quiénes Somos</a>
+      <a class="link" href="#experiences">Servicios</a>
+      <a class="link" href="#team">Artistas</a>
       <a class="btn btn-crimson" href="#contact">Consultar Ahora</a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileDrawer">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
   </header>
+
+  <!-- MOBILE DRAWER NAVIGATION (EDITORIAL LUXURY) -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <img src="assets/logo_icon.png" alt="Rite of Passage" />
+          <span class="name">Rite of Passage</span>
+        </div>
+        <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">×</button>
+      </div>
+      <div class="drawer-divider"></div>
+      <nav class="mobile-nav-links">
+        <a class="mobile-link" href="#top"><span class="m-num">01</span><span>Inicio</span></a>
+        <a class="mobile-link" href="#philosophy"><span class="m-num">02</span><span>Filosofía</span></a>
+        <a class="mobile-link" href="#about"><span class="m-num">03</span><span>Quiénes Somos</span></a>
+        <a class="mobile-link" href="#experiences"><span class="m-num">04</span><span>Servicios</span></a>
+        <a class="mobile-link" href="#team"><span class="m-num">05</span><span>Nuestros Artistas</span></a>
+        <a class="mobile-link" href="#social"><span class="m-num">06</span><span>Comunidad & Redes</span></a>
+        <a class="mobile-link" href="#contact"><span class="m-num">07</span><span>Contacto</span></a>
+      </nav>
+      <div class="drawer-footer">
+        <a class="btn btn-crimson drawer-cta" href="#contact">Inicia tu Rito</a>
+        <a class="drawer-wa-btn" href="https://wa.me/5492914074772?text=Hola%20Rite%20of%20Passage%2C%20quisiera%20consultar%20disponibilidad%20para%20un%20evento%20bespoke." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.49 0-2.95-.4-4.23-1.16l-.3-.18-3.14.82.84-3.06-.2-.31c-.83-1.33-1.27-2.88-1.27-4.47 0-4.5 3.66-8.15 8.16-8.15 2.18 0 4.23.85 5.77 2.39 1.54 1.54 2.39 3.59 2.39 5.77 0 4.49-3.66 8.15-8.16 8.15z"/></svg>
+          <span>Chat Directo por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <img class="hero-gif" src="assets/hero_fuego.gif" alt="" aria-hidden="true" />
+    <video class="hero-media" autoplay muted loop playsinline poster="assets/hero_poster.webp" aria-hidden="true">
+      <source src="assets/hero_video.webm" type="video/webm">
+      <source src="assets/hero_video.mp4" type="video/mp4">
+    </video>
     <div class="wrap hero-center">
       <img class="brandmark" src="assets/logo_brand.png" alt="Rite of Passage" />
-      <span class="eyebrow reveal">Atelier de Eventos a Medida</span>
-      <h1 class="reveal d1">Celebra <span class="accent">Extraordinarios</span> Momentos</h1>
-      <p class="sub reveal d2">A medida · Exclusivos · Eventos Inolvidables</p>
+      <span class="eyebrow reveal">Productora de Sonido de Primer Nivel</span>
+      <h1 class="reveal d1">ARQUITECTURA SONORA DE <span class="accent">VANGUARDIA</span></h1>
+      <p class="sub reveal d2">Curaduría Musical · Formación · Hardware · Producción Integral</p>
       <div class="cta-row reveal d3">
         <a class="btn btn-crimson" href="#contact">Inicia tu Rito</a>
-        <a class="btn btn-ghost" href="#experiences">Explorar Servicios</a>
+        <a class="btn btn-ghost" href="#experiences">Servicios que Ofrecemos</a>
       </div>
     </div>
   </section>
@@ -41,39 +81,75 @@
   <!-- PHILOSOPHY -->
   <section class="philosophy" id="philosophy">
     <div class="pwrap" id="philField">
-      <div class="kicker"><span class="idx">01</span> Filosofía</div>
+      <div class="kicker">Filosofía</div>
       <p class="quote">
         El rito<br>
-        es el <span class="accent">umbral</span><br>
-        entre <span class="out">quien eras</span><br>
-        y quien serás
+        es el <span class="accent">umbral</span> entre<br>
+        <span class="out who-past">quien eras</span><br>
+        y <span class="who-future">quien serás</span>
       </p>
       <div class="rule"></div>
       <p class="attr">Diseñamos el instante en que lo cruzas</p>
     </div>
   </section>
 
-  <!-- QUIÉNES SOMOS -->
+  <!-- QUIÉNES SOMOS (STORYLINE CON RIEL DE FUEGO & SCROLL REVEAL) -->
   <section class="about section-pad" id="about">
-    <div class="wrap about-grid">
-      <div class="about-media reveal">
-        <button class="shot" type="button" data-full="assets/evento_corporativo.png" aria-label="Ver evento corporativo en grande">
-          <img src="assets/evento_corporativo.png" alt="Evento corporativo" />
-        </button>
-        <button class="shot" type="button" data-full="assets/fiesta_comun.png" aria-label="Ver fiesta en grande">
-          <img src="assets/fiesta_comun.png" alt="Fiesta" />
-        </button>
-        <button class="shot" type="button" data-full="assets/cumple_15.png" aria-label="Ver cumpleaños de 15 en grande">
-          <img src="assets/cumple_15.png" alt="Cumpleaños de 15" />
-        </button>
+    <div class="wrap">
+      <div class="sec-head reveal about-head-center">
+        <h2 class="about-title-crimson">Quiénes Somos</h2>
       </div>
-      <div class="about-text reveal d1">
-        <div class="sec-head">
-          <span class="kicker">Quiénes Somos</span>
-          <h2 class="glow">Diseñamos ritos, no eventos</h2>
+
+      <div class="story-timeline" id="storyTimeline">
+        <!-- Riel dinámico que se forma al hacer scroll -->
+        <div class="story-line-track">
+          <div class="story-line-fill" id="storyLineFill"></div>
         </div>
-        <p class="about-lead">Somos un atelier de eventos a medida. No armamos fiestas: construimos el instante en que alguien cruza de quien era a quien va a ser. Cada velada es <span class="accent">bespoke</span> — escrita desde cero en torno a una sola visión, la tuya.</p>
-        <p class="about-goal">Nuestro objetivo: que la noche que imaginás exista una sola vez, y solo para vos.</p>
+
+        <!-- ITEM 01 -->
+        <div class="story-item reveal">
+          <div class="story-node">01</div>
+          <button class="story-media shot" type="button" data-full="assets/escenario_6.webp" aria-label="Ver escenario en grande">
+            <img src="assets/escenario_6.webp" alt="Atelier Bespoke — Diseñamos ritos" loading="lazy" decoding="async" width="1920" height="1280" />
+          </button>
+          <div class="story-text">
+            <span class="story-tag">01 // EXPERIENCIAS </span>
+            <h3 class="story-title">Diseñamos <span class="accent">ritos</span>, no eventos</h3>
+            <p class="story-lead">
+              No armamos fiestas: construimos el instante en que alguien cruza de quien era a quien va a ser.
+            </p>
+          </div>
+        </div>
+
+        <!-- ITEM 02 -->
+        <div class="story-item reverse reveal">
+          <div class="story-node">02</div>
+          <button class="story-media shot" type="button" data-full="assets/escenario_5.webp" aria-label="Ver escenario en grande">
+            <img src="assets/escenario_5.webp" alt="Visión Única — Cada velada es bespoke" loading="lazy" decoding="async" width="1920" height="1280" />
+          </button>
+          <div class="story-text">
+            <span class="story-tag">02 // CURADURIA VANGUARDISTA</span>
+            <h3 class="story-title">Cada velada es <span class="accent">una experiencia sonora unica</span></h3>
+            <p class="story-lead">
+              Atmósferas íntimas con sonido seleccionado enfocadas en lograr una <span class="accent">inmersión garantizada.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ITEM 03 -->
+        <div class="story-item reveal">
+          <div class="story-node">03</div>
+          <button class="story-media shot" type="button" data-full="assets/escenario_4.webp" aria-label="Ver escenario en grande">
+            <img src="assets/escenario_4.webp" alt="El Instante Cumbre — Nuestro Objetivo" loading="lazy" decoding="async" width="1920" height="1280" />
+          </button>
+          <div class="story-text">
+            <span class="story-tag">03 // EL INSTANTE CUMBRE</span>
+            <h3 class="story-title">Nuestro <span class="accent">Objetivo</span></h3>
+            <p class="story-lead story-goal">
+              Dejá atrás lo terrenal: diseñamos experiencias acústicas inmersivas que se sienten en el cuerpo y <span class="accent">se quedan en el alma.</span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -84,54 +160,147 @@
     <img id="lightboxImg" src="" alt="" />
   </div>
 
-  <!-- CAPABILITIES -->
+  <!-- SERVICIOS QUE OFRECEMOS -->
+  <!-- SERVICIOS QUE OFRECEMOS (PASARELA MODULAR CON FILTROS POR CATEGORÍA) -->
   <section class="section-pad" id="experiences">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="kicker">Nuestras Capacidades</span>
-        <h2>Cuatro formas de hacer que lo imposible se sienta natural</h2>
-        <p>Cada evento se escribe en torno a una sola visión — la tuya — y se ejecuta con precisión silenciosa.</p>
+      <div class="sec-head reveal about-head-center">
+        <span class="kicker">Productora de Vanguardia</span>
+        <h2 class="glow" style="max-width: 100%; margin: 0 auto 12px; font-size: clamp(28px, 5.5vw, 56px);">Servicios que Ofrecemos</h2>
+        <p style="max-width: 60ch; margin: 0 auto; color: var(--cream-dim); font-size: clamp(15px, 1.6vw, 17px);">
+          Soluciones integrales de sonido de primer nivel, desarrollo artístico y tecnología escénica.
+        </p>
       </div>
-      <div class="cards">
-        <article class="card reveal">
-          <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M14 54 V32 a18 18 0 0 1 36 0 V54"/>
-            <path d="M32 14 c5 7 9 10 6 17 c-2 5 -8 6 -6 11 c1 3 5 4 6 7"/>
-            <path d="M22 9 h4 M30 7 h4 M38 9 h4"/>
-          </svg>
-          <span class="num">01</span>
-          <h3>Galas Privadas</h3>
-          <p>Veladas íntimas y grandes celebraciones, coreografiadas hasta el último detalle a la luz de las velas.</p>
+
+      <!-- FILTROS POR CATEGORÍA (100% EN ESPAÑOL) -->
+      <div class="services-filter-pills reveal">
+        <button class="svc-filter-pill active" type="button" data-cat="all">Todos (10)</button>
+        <button class="svc-filter-pill" type="button" data-cat="produccion">Producción & Sonido</button>
+        <button class="svc-filter-pill" type="button" data-cat="artistas">Desarrollo Artístico</button>
+        <button class="svc-filter-pill" type="button" data-cat="gestion">Gestión Comercial</button>
+      </div>
+
+      <div class="services-cat-grid" id="servicesGrid">
+        <!-- 01 -->
+        <article class="svc-item reveal" data-cat="artistas">
+          <div class="svc-num-badge">01</div>
+          <div class="svc-item-body">
+            <h3>Confección de Presskits</h3>
+            <p>Dossiers visuales y técnicos de alto impacto para artistas y presentaciones profesionales.</p>
+          </div>
         </article>
-        <article class="card reveal d1">
-          <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M32 8 L56 32 L32 56 L8 32 Z"/>
-            <path d="M24 36 l8 -8 l8 8"/>
-            <path d="M24 46 l8 -8 l8 8"/>
-          </svg>
-          <span class="num">02</span>
-          <h3>Eventos Corporativos</h3>
-          <p>Lanzamientos y encuentros que definen una marca, donde la precisión se encuentra con el espectáculo.</p>
+        <!-- 02 -->
+        <article class="svc-item reveal d1" data-cat="produccion">
+          <div class="svc-num-badge">02</div>
+          <div class="svc-item-body">
+            <h3>Contenido Audiovisual</h3>
+            <p>Producción audiovisual, sesiones sonoras y material promocional de alto impacto.</p>
+          </div>
         </article>
-        <article class="card reveal d2">
-          <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M32 8 c8 12 16 18 11 32 c-3 9 -12 11 -11 18 c0 -7 -8 -10 -11 -18 c-4 -14 4 -20 11 -32 Z"/>
-            <path d="M32 30 c3 4 5 6 3 11"/>
-          </svg>
-          <span class="num">03</span>
-          <h3>Fiestas Exclusivas</h3>
-          <p>Encuentros nocturnos para quienes esperan que la sala sea solo suya.</p>
+        <!-- 03 -->
+        <article class="svc-item reveal d2" data-cat="gestion">
+          <div class="svc-num-badge">03</div>
+          <div class="svc-item-body">
+            <h3>Contactos Comerciales</h3>
+            <p>Vinculación estratégica con marcas, sponsors y venues de primer nivel.</p>
+          </div>
         </article>
-        <article class="card reveal d3">
-          <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M16 32 c0 -7 9 -7 16 0 c7 7 16 7 16 0 c0 -7 -9 -7 -16 0 c-7 7 -16 7 -16 0 Z"/>
-            <circle cx="16" cy="32" r="2.4" fill="currentColor"/>
-            <circle cx="48" cy="32" r="2.4" fill="currentColor"/>
-          </svg>
-          <span class="num">04</span>
-          <h3>Experiencias a Medida</h3>
-          <p>Jornadas únicas, compuestas enteramente en torno a una visión que no existe en ningún otro lugar.</p>
+        <!-- 04 -->
+        <article class="svc-item reveal d3" data-cat="gestion">
+          <div class="svc-num-badge">04</div>
+          <div class="svc-item-body">
+            <h3>Gestión de Contratos</h3>
+            <p>Asesoramiento y redacción de acuerdos contractuales, riders y condiciones de actuación.</p>
+          </div>
         </article>
+        <!-- 05 -->
+        <article class="svc-item reveal" data-cat="artistas">
+          <div class="svc-num-badge">05</div>
+          <div class="svc-item-body">
+            <h3>Booking y Manejo de Agenda</h3>
+            <p>Representación artística, coordinación de fechas y logística para presentaciones.</p>
+          </div>
+        </article>
+        <!-- 06 -->
+        <article class="svc-item reveal d1" data-cat="artistas">
+          <div class="svc-num-badge">06</div>
+          <div class="svc-item-body">
+            <h3>Promoción y Difusión</h3>
+            <p>Estrategias de posicionamiento en medios digitales, campañas de lanzamiento y prensa.</p>
+          </div>
+        </article>
+        <!-- 07 -->
+        <article class="svc-item reveal d2" data-cat="produccion">
+          <div class="svc-num-badge">07</div>
+          <div class="svc-item-body">
+            <h3>Espacio de Práctica y Alquiler de Cabina</h3>
+            <p>Cabinas acústicamente tratadas con equipamiento profesional para ensayos y grabaciones.</p>
+          </div>
+        </article>
+        <!-- 08 -->
+        <article class="svc-item reveal d3" data-cat="artistas">
+          <div class="svc-num-badge">08</div>
+          <div class="svc-item-body">
+            <h3>Escuela de DJs</h3>
+            <p>Formación especializada en mezcla, técnica vanguardista y selección musical (nivel inicial e intermedio).</p>
+          </div>
+        </article>
+        <!-- 09 -->
+        <article class="svc-item reveal" data-cat="produccion">
+          <div class="svc-num-badge">09</div>
+          <div class="svc-item-body">
+            <h3>Alquiler de Equipos de Audio &amp; Sonido</h3>
+            <p>Consolas Pioneer DJ, sistemas de monitoreo profesional, subwoofers y racks de procesamiento de señal.</p>
+          </div>
+        </article>
+        <!-- 10 -->
+        <article class="svc-item reveal d1" data-cat="produccion">
+          <div class="svc-num-badge">10</div>
+          <div class="svc-item-body">
+            <h3>Montaje y Curaduría de Eventos</h3>
+            <p> calibración acústica inmersiva y dirección artística para veladas exclusivas.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDES SOCIALES OFICIALES (DOSSIER MULTIMEDIA SPLIT) -->
+  <section class="section-social section-pad" id="social">
+    <div class="wrap">
+      <div class="sec-head reveal about-head-center" style="margin-bottom: 40px;">
+        <span class="kicker">Comunidad & Cobertura</span>
+        <h2 class="glow" style="max-width: 100%; margin: 0 auto; font-size: clamp(28px, 5.5vw, 54px);">Redes Oficiales</h2>
+      </div>
+
+      <div class="social-multimedia-grid">
+        <!-- INSTAGRAM -->
+        <div class="social-media-box instagram reveal d1">
+          <div class="social-icon-circle ig">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <span class="social-tag-pill ig">INSTAGRAM OFICIAL</span>
+          <h3 class="social-box-title">@riteofpassagearg</h3>
+          <a href="https://instagram.com/riteofpassagearg" target="_blank" class="social-btn-brand ig">
+            <span>Seguir en Instagram</span> ↗
+          </a>
+        </div>
+
+        <!-- YOUTUBE -->
+        <div class="social-media-box youtube reveal d2">
+          <div class="social-icon-circle yt">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
+          <span class="social-tag-pill yt">CANAL DE YOUTUBE</span>
+          <h3 class="social-box-title">Rite of Passage Agency</h3>
+          <a href="https://youtube.com/@RiteofPassageAgency" target="_blank" class="social-btn-brand yt">
+            <span>Ver Canal Oficial</span> ↗
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -146,23 +315,24 @@
 
       <div class="sec-head reveal">
         <span class="kicker">Nuestro Equipo</span>
-        <h2>Uno de nuestros grandes integrantes</h2>
+        <h2>Nuestros grandes artistas</h2>
         <p>Las mentes y artesanos que transforman cada visión en una experiencia irrepetible.</p>
       </div>
 
-      <div class="team-card reveal d1" id="teamCard" tabindex="0">
+      <a href="joah.html" class="team-card reveal d1" id="teamCard" tabindex="0" style="text-decoration: none; color: inherit; cursor: pointer; display: grid;">
         <canvas id="teamCanvas" class="team-canvas"></canvas>
         <div class="team-media-wrap">
-          <img src="assets/joah_5.jpg" alt="Joa Lamtzev" />
+          <img src="assets/joah_1.webp" alt="Joa Lamtzev" loading="lazy" decoding="async" width="1200" height="1500" />
           <div class="team-overlay"></div>
           <div class="team-badge"><span class="team-badge-dot"></span> MÚSICO DE ATELIER</div>
         </div>
         <div class="team-content">
           <h3 class="team-name">Joa Lamtzev</h3>
-          <span class="team-role">Saxofonista</span>
-          <p class="team-bio">“El saxofón no solo interpreta notas: esculpe la atmósfera de la noche. Cada melodía se adapta al pulso del ritual y al alma de los invitados.”</p>
+          <span class="team-role">Saxofonista y DJ</span>
+          <p class="team-bio">“Me gusta pensar que la música nos conecta más allá de las palabras; el saxofón es mi manera de hacer que esa conexión se sienta.”</p>
+          <span class="team-link-cta" style="display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.8rem; color: #d4af37; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; border-bottom: 1px solid #d4af37; padding-bottom: 2px;">Ver Dossier Completo →</span>
         </div>
-      </div>
+      </a>
 
       <!-- SEPARADOR INFERIOR -->
       <div class="section-divider">
@@ -174,9 +344,14 @@
   <!-- THE RITE / SYMBOLISM -->
   <!-- PULL QUOTE -->
   <section class="pull">
+    <div class="pull-bg-slides" aria-hidden="true">
+      <div class="pull-slide pull-s1"></div>
+      <div class="pull-slide pull-s2"></div>
+      <div class="pull-slide pull-s3"></div>
+    </div>
     <div class="wrap">
       <span class="tag reveal">El Rito</span>
-      <blockquote class="reveal d1">Algunas veladas se recuerdan toda la vida. <span class="accent">Nosotros las construimos.</span></blockquote>
+      <blockquote class="reveal d1">Algunos momentos se recuerdan toda la vida. <span class="accent">Nosotros los hacemos realidad.</span></blockquote>
       <p class="from reveal d2">Rite of Passage</p>
     </div>
   </section>
@@ -190,20 +365,35 @@
             <h2>Inicia la conversación</h2>
             <p class="lead">Contanos el momento que imaginás. Te diremos cómo lo hacemos realidad — y solo tuyo.</p>
             <div class="detail">
-              <div><span class="k">Email</span><span>hello@riteofpassage.events</span></div>
-              <div><span class="k">Teléfono</span><span>+00 (000) 000 0000</span></div>
+              <div><span class="k">Email</span><a href="mailto:adm.riteofpassage@gmail.com" class="detail-email-link">adm.riteofpassage@gmail.com</a></div>
+              <div>
+                <span class="k">Teléfono</span>
+                <a href="tel:+5492914074772" class="phone-link" title="Llamar directamente (+54 9 291 407-4772)">+54 9 291 407-4772</a>
+              </div>
               <div><span class="k">Estudio</span><span>Por invitación · En todo el mundo</span></div>
+            </div>
+
+            <!-- LOGO / BOTÓN WHATSAPP EN LA ZONA CIRCULADA -->
+            <div class="contact-wa-row">
+              <a href="https://wa.me/5492914074772" target="_blank" rel="noopener noreferrer" class="contact-wa-badge" title="Abrir WhatsApp (+54 9 291 407-4772)" aria-label="Contactar por WhatsApp">
+                <div class="wa-badge-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.49 0-2.95-.4-4.23-1.16l-.3-.18-3.14.82.84-3.06-.2-.31c-.83-1.33-1.27-2.88-1.27-4.47 0-4.5 3.66-8.15 8.16-8.15 2.18 0 4.23.85 5.77 2.39 1.54 1.54 2.39 3.59 2.39 5.77 0 4.49-3.66 8.15-8.16 8.15z"/></svg>
+                </div>
+                <span class="wa-badge-text">WhatsApp</span>
+              </a>
             </div>
           </div>
           <div class="reveal d1">
             <form id="enquiry" novalidate>
               <div class="field">
-                <label for="name">Nombre</label>
-                <input id="name" name="name" type="text" placeholder="Tu nombre completo" required />
+                <label for="name">Nombre Completo *</label>
+                <input id="name" name="name" type="text" placeholder="Tu nombre y apellido" required />
+                <span class="field-error" id="nameError" aria-live="polite"></span>
               </div>
               <div class="field">
-                <label for="email">Correo</label>
-                <input id="email" name="email" type="email" placeholder="vos@ejemplo.com" required />
+                <label for="email">Correo Electrónico *</label>
+                <input id="email" name="email" type="email" placeholder="ejemplo@atelier.com" required />
+                <span class="field-error" id="emailError" aria-live="polite"></span>
               </div>
               <div class="field">
                 <label for="type">Tipo de Evento</label>
@@ -223,8 +413,18 @@
               <p class="form-note">Respondemos a toda consulta seria dentro de las 48 horas.</p>
             </form>
             <div class="form-ok" id="formOk">
-              <h3>Recibido.</h3>
-              <p>Gracias — tu consulta está en camino. Te contactaremos pronto.</p>
+              <span class="form-ok-diamond">✦</span>
+              <h3>Propuesta Registrada</h3>
+              <p id="formOkDesc">Gracias — tu visión está en manos de nuestro atelier. Nos pondremos en contacto contigo en breve para dar inicio al rito.</p>
+              
+              <div class="form-ok-actions">
+                <span class="form-ok-sub">¿Deseás agilizar la comunicación?</span>
+                <a id="formOkWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-direct">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.49 0-2.95-.4-4.23-1.16l-.3-.18-3.14.82.84-3.06-.2-.31c-.83-1.33-1.27-2.88-1.27-4.47 0-4.5 3.66-8.15 8.16-8.15 2.18 0 4.23.85 5.77 2.39 1.54 1.54 2.39 3.59 2.39 5.77 0 4.49-3.66 8.15-8.16 8.15z"/></svg>
+                  <span>Enviar resumen vía WhatsApp</span>
+                </a>
+                <button type="button" id="formResetBtn" class="form-reset-link">Enviar otra propuesta</button>
+              </div>
             </div>
           </div>
         </div>
@@ -243,6 +443,23 @@
             <div class="s">Bespoke Events</div>
           </div>
         </div>
+        <div class="foot-social-row">
+          <a href="https://www.instagram.com/riteofpassagearg/" target="_blank" rel="noopener noreferrer" class="social-badge-full ig-style" aria-label="Instagram Rite of Passage">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <div>
+              <span>Instagram</span>
+              <span class="badge-tag">@riteofpassagearg</span>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@RiteofPassageAgency" target="_blank" rel="noopener noreferrer" class="social-badge-full" aria-label="Canal oficial de YouTube Rite of Passage Agency">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <div>
+              <span>Canal Oficial</span>
+              <span class="badge-tag">@RiteofPassageAgency</span>
+            </div>
+          </a>
+        </div>
         <nav class="foot-links">
           <a href="#experiences">Experiencias</a>
           <a href="#philosophy">Filosofía</a>
@@ -257,41 +474,185 @@
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Mobile Drawer Navigation (Editorial Luxury)
+  (function () {
+    const toggle = document.getElementById('menuToggle');
+    const drawer = document.getElementById('mobileDrawer');
+    const closeBtn = document.getElementById('drawerClose');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const links = document.querySelectorAll('.mobile-link');
+
+    if (!toggle || !drawer) return;
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('drawer-open');
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('drawer-open');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) closeDrawer();
+      else openDrawer();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    links.forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+  })();
+
   // Header shrink on scroll
   const hdr = document.getElementById('hdr');
   const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Reveal on scroll (with fallback so content never stays hidden)
+  // Reveal on scroll (bidireccional continuo: anima al bajar y al subir)
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+        } else {
+          const r = e.boundingClientRect;
+          if (r.top > window.innerHeight || r.bottom < 0) {
+            e.target.classList.remove('in');
+          }
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => io.observe(el));
-    // Safety net: if anything is still hidden after load, show it.
-    setTimeout(() => reveals.forEach(el => { if (!el.classList.contains('in')) el.style.opacity = 1; }), 1600);
   } else {
     reveals.forEach(el => el.classList.add('in'));
   }
 
-  // Enquiry form (no backend — local confirmation)
+  // Línea de fuego que se va formando dinámicamente al scrollear (Throttled con rAF)
+  const timelineEl = document.getElementById('storyTimeline');
+  const lineFillEl = document.getElementById('storyLineFill');
+  let tickingLine = false;
+  function updateStoryLine() {
+    if (!timelineEl || !lineFillEl) return;
+    const rect = timelineEl.getBoundingClientRect();
+    const winH = window.innerHeight;
+    const startPoint = winH * 0.75;
+    const totalH = rect.height;
+    const current = (startPoint - rect.top) / totalH;
+    const progress = Math.min(Math.max(current, 0), 1);
+    lineFillEl.style.height = (progress * 100) + '%';
+    tickingLine = false;
+  }
+  function requestStoryLineUpdate() {
+    if (!tickingLine) {
+      window.requestAnimationFrame(updateStoryLine);
+      tickingLine = true;
+    }
+  }
+  window.addEventListener('scroll', requestStoryLineUpdate, { passive: true });
+  window.addEventListener('resize', requestStoryLineUpdate, { passive: true });
+  updateStoryLine();
+
+  // Enquiry form (Validación accesible sin alert y puente WhatsApp)
   const form = document.getElementById('enquiry');
   const ok = document.getElementById('formOk');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const typeSelect = document.getElementById('type');
+  const msgInput = document.getElementById('msg');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const formOkWaBtn = document.getElementById('formOkWaBtn');
+  const formResetBtn = document.getElementById('formResetBtn');
+
+  // Limpiar errores visuales al escribir
+  [nameInput, emailInput].forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('invalid');
+      if (input === nameInput && nameError) {
+        nameError.textContent = '';
+        nameError.classList.remove('active');
+      }
+      if (input === emailInput && emailError) {
+        emailError.textContent = '';
+        emailError.classList.remove('active');
+      }
+    });
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const type = typeSelect ? typeSelect.value : 'Evento';
+    const msg = msgInput ? msgInput.value.trim() : '';
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!name || !emailOk) {
-      alert('Por favor ingresá tu nombre y un correo válido para poder contactarte.');
+
+    let isValid = true;
+
+    if (!name) {
+      nameInput.classList.add('invalid');
+      if (nameError) {
+        nameError.textContent = 'Por favor ingresá tu nombre completo.';
+        nameError.classList.add('active');
+      }
+      isValid = false;
+    }
+
+    if (!email || !emailOk) {
+      emailInput.classList.add('invalid');
+      if (emailError) {
+        emailError.textContent = 'Ingresá un correo electrónico válido.';
+        emailError.classList.add('active');
+      }
+      isValid = false;
+    }
+
+    if (!isValid) {
+      if (!name) nameInput.focus();
+      else emailInput.focus();
       return;
     }
+
+    // Construcción del mensaje estructurado para WhatsApp
+    const waText = `Hola Rite of Passage, mi nombre es ${name} (${email}). Me pongo en contacto para consultar disponibilidad y propuesta para: *${type}*.\n\nNuestra visión: ${msg || 'A coordinar'}`;
+    const waUrl = `https://wa.me/5492914074772?text=${encodeURIComponent(waText)}`;
+
+    if (formOkWaBtn) {
+      formOkWaBtn.href = waUrl;
+    }
+
     form.style.display = 'none';
     ok.classList.add('show');
     ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+
+  if (formResetBtn) {
+    formResetBtn.addEventListener('click', () => {
+      form.reset();
+      form.style.display = 'block';
+      ok.classList.remove('show');
+      nameInput.focus();
+    });
+  }
 
   // Lightbox — tocar imagen para verla en profundidad
   (function () {
@@ -335,19 +696,21 @@
     }
   })();
 
-  // Team Section — Partículas violetas en Canvas
+  // Team Section — Partículas Doradas de Atelier en Canvas (Optimizado con IntersectionObserver)
   (function () {
     const card = document.getElementById('teamCard');
     const canvas = document.getElementById('teamCanvas');
     if (!card || !canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let isVisible = false;
+    let animId = null;
 
     function resize() {
       canvas.width = card.offsetWidth;
       canvas.height = card.offsetHeight;
     }
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
     setTimeout(resize, 100);
 
     function Particle() {
@@ -358,7 +721,7 @@
         this.speedY = Math.random() * 1.4 + 0.8;
         this.speedX = (Math.random() - 0.5) * 0.8;
         this.alpha = Math.random() * 0.7 + 0.3;
-        this.color = Math.random() > 0.4 ? '#9b51e0' : '#bb86fc';
+        this.color = Math.random() > 0.4 ? '#d4af37' : '#f5e6d3';
       };
       this.reset();
       this.update = function () {
@@ -385,14 +748,62 @@
     }
 
     function animate() {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(function (p) {
         p.update();
         p.draw();
       });
-      requestAnimationFrame(animate);
+      animId = requestAnimationFrame(animate);
     }
-    animate();
+
+    // IntersectionObserver: pausa el ciclo de partículas cuando la tarjeta no está en pantalla
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!isVisible) {
+              isVisible = true;
+              animId = requestAnimationFrame(animate);
+            }
+          } else {
+            isVisible = false;
+            if (animId) {
+              cancelAnimationFrame(animId);
+              animId = null;
+            }
+          }
+        });
+      }, { threshold: 0.05 });
+      io.observe(card);
+    } else {
+      isVisible = true;
+      animate();
+    }
+  })();
+
+  // Servicios — Filtro por Categorías (Opción 2)
+  (function () {
+    const pills = document.querySelectorAll('.svc-filter-pill');
+    const items = document.querySelectorAll('.svc-item');
+    if (!pills.length || !items.length) return;
+
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        pills.forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        const cat = pill.getAttribute('data-cat');
+
+        items.forEach(function (item) {
+          if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+            item.style.display = 'flex';
+            item.classList.add('in');
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
   })();
 </script>
 </body>

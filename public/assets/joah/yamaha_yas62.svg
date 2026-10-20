@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldSax" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2a1" />
+      <stop offset="35%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#aa7c11" />
+      <stop offset="100%" stop-color="#5a3d00" />
+    </linearGradient>
+    <linearGradient id="goldGleam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#d4af37" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#5a3d00" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glowSax" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g filter="url(#glowSax)">
+    <!-- BOQUILLA Y TUDEL -->
+    <path d="M165,70 C175,70 185,75 190,85 L210,130 C215,140 218,155 218,170 L218,220" fill="none" stroke="#222" stroke-width="12" stroke-linecap="round" />
+    <path d="M190,85 L210,130 C215,140 218,155 218,170 L218,220" fill="none" stroke="url(#goldSax)" stroke-width="10" stroke-linecap="round" />
+    <!-- Llave de octava tudel -->
+    <path d="M198,105 L222,125" stroke="#fff" stroke-width="3" />
+    <circle cx="198" cy="105" r="4" fill="url(#goldSax)" />
+
+    <!-- CUERPO PRINCIPAL (TUBE) -->
+    <path d="M218,215 L218,430 C218,480 180,520 130,520 C85,520 50,480 50,430 L50,340 C50,290 80,245 130,220 C145,212 165,210 185,215" fill="none" stroke="url(#goldSax)" stroke-width="26" stroke-linecap="round" />
+    <!-- Brillo del tubo -->
+    <path d="M215,220 L215,430 C215,475 178,512 130,512" fill="none" stroke="url(#goldGleam)" stroke-width="8" stroke-linecap="round" />
+
+    <!-- CAMPANA (BELL) -->
+    <path d="M130,220 C75,250 40,300 40,360 C40,440 85,510 145,510 C205,510 240,440 240,360 C240,290 200,235 150,205 Z" fill="url(#goldSax)" opacity="0.95" />
+    <!-- Labio / Aro de campana -->
+    <ellipse cx="140" cy="235" rx="55" ry="32" fill="#2a1e05" stroke="url(#goldSax)" stroke-width="8" />
+    <ellipse cx="140" cy="235" rx="48" ry="26" fill="none" stroke="#fff" stroke-width="2" opacity="0.6" />
+    <ellipse cx="140" cy="235" rx="42" ry="22" fill="#070709" />
+    <text x="140" y="240" font-family="'Cinzel Decorative', serif" font-size="10" fill="url(#goldSax)" text-anchor="middle" letter-spacing="1">YAMAHA</text>
+    <text x="140" y="252" font-family="monospace" font-size="7" fill="#d4af37" text-anchor="middle" letter-spacing="2">YAS-62</text>
+
+    <!-- LLAVES Y MECANISMO DE COPAS -->
+    <g fill="url(#goldSax)" stroke="#070709" stroke-width="1.5">
+      <!-- Guardas de campana -->
+      <path d="M65,370 Q80,400 105,430" fill="none" stroke="url(#goldSax)" stroke-width="5" />
+      <circle cx="70" cy="380" r="10" fill="url(#goldSax)" />
+      <circle cx="90" cy="410" r="11" fill="url(#goldSax)" />
+      
+      <!-- Varillas de mecanismo vertical -->
+      <line x1="228" y1="230" x2="228" y2="440" stroke="#d4af37" stroke-width="3" />
+      <line x1="233" y1="250" x2="233" y2="420" stroke="#d4af37" stroke-width="2.5" />
+      <line x1="223" y1="240" x2="223" y2="430" stroke="#aa7c11" stroke-width="2" />
+
+      <!-- Llaves / Perlas superiores -->
+      <circle cx="218" cy="250" r="8" />
+      <circle cx="218" cy="250" r="5" fill="#f5e6d3" />
+      <circle cx="218" cy="275" r="8" />
+      <circle cx="218" cy="275" r="5" fill="#f5e6d3" />
+      <circle cx="218" cy="300" r="8" />
+      <circle cx="218" cy="300" r="5" fill="#f5e6d3" />
+      
+      <circle cx="218" cy="335" r="8.5" />
+      <circle cx="218" cy="335" r="5.5" fill="#f5e6d3" />
+      <circle cx="218" cy="360" r="8.5" />
+      <circle cx="218" cy="360" r="5.5" fill="#f5e6d3" />
+      <circle cx="218" cy="385" r="8.5" />
+      <circle cx="218" cy="385" r="5.5" fill="#f5e6d3" />
+
+      <!-- Llaves de meñique / llaves graves -->
+      <rect x="200" y="415" width="16" height="8" rx="3" fill="#d4af37" />
+      <rect x="200" y="428" width="16" height="8" rx="3" fill="#d4af37" />
+      <rect x="200" y="441" width="16" height="8" rx="3" fill="#d4af37" />
+    </g>
+
+    <!-- Rayos de luz / destellos -->
+    <path d="M218,170 L218,190" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+    <polygon points="175,230 178,235 175,240 172,235" fill="#fff" opacity="0.9" />
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+---
+import { services, serviceCategories } from '../data/services';
+---
+
+<!-- SERVICIOS QUE OFRECEMOS (PASARELA MODULAR CON FILTROS POR CATEGORÍA) -->
+<section class="section-pad" id="experiences">
+  <div class="wrap">
+    <div class="sec-head reveal about-head-center">
+      <span class="kicker">Productora de Vanguardia</span>
+      <h2 class="glow" style="max-width: 100%; margin: 0 auto 12px; font-size: clamp(28px, 5.5vw, 56px);">Servicios que Ofrecemos</h2>
+      <p style="max-width: 60ch; margin: 0 auto; color: var(--cream-dim); font-size: clamp(15px, 1.6vw, 17px);">
+        Soluciones integrales de sonido de primer nivel, desarrollo artístico y tecnología escénica.
+      </p>
+    </div>
+
+    <!-- FILTROS POR CATEGORÍA -->
+    <div class="services-filter-pills reveal">
+      {serviceCategories.map((cat, idx) => (
+        <button
+          class={`svc-filter-pill ${idx === 0 ? 'active' : ''}`}
+          type="button"
+          data-cat={cat.id}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="services-cat-grid" id="servicesGrid">
+      {services.map((svc) => (
+        <article class={`svc-item reveal ${svc.delay || ''}`} data-cat={svc.category}>
+          <div class="svc-num-badge">{svc.number}</div>
+          <div class="svc-item-body">
+            <h3>{svc.title}</h3>
+            <p>{svc.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Servicios — Filtro por Categorías
+  const pills = document.querySelectorAll('.svc-filter-pill');
+  const items = document.querySelectorAll('.svc-item') as NodeListOf<HTMLElement>;
+
+  if (pills.length && items.length) {
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const cat = pill.getAttribute('data-cat');
+
+        items.forEach(item => {
+          if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+            item.style.display = 'flex';
+            item.classList.add('in');
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+</script>

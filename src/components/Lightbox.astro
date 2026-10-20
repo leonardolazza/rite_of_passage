@@ -1,0 +1,38 @@
+---
+---
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg') as HTMLImageElement | null;
+  const lbClose = document.getElementById('lightboxClose');
+
+  if (lb && lbImg) {
+    document.querySelectorAll('.shot').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const fullSrc = btn.getAttribute('data-full');
+        const imgEl = btn.querySelector('img');
+        if (fullSrc) lbImg.src = fullSrc;
+        if (imgEl) lbImg.alt = imgEl.alt || '';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLb() {
+      if (!lb || !lbImg) return;
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+  }
+</script>
