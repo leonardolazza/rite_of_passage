@@ -575,15 +575,41 @@
       particles.push(new Particle());
     }
 
+    let isVisible = false;
+    let animationFrameId = null;
+
     function animate() {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(function (p) {
         p.update();
         p.draw();
       });
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     }
-    animate();
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            if (!isVisible) {
+              isVisible = true;
+              animationFrameId = requestAnimationFrame(animate);
+            }
+          } else {
+            isVisible = false;
+            if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+              animationFrameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(card);
+    } else {
+      isVisible = true;
+      animate();
+    }
   })();
 
   // Servicios — Filtro por Categorías (Opción 2)
