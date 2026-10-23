@@ -284,6 +284,44 @@
 
   <script>
     // Hero Slideshow Crossfade Logic (Transición Gradual Pura)
+    (function () {
+      const heroSlides = document.querySelectorAll('.hero-slide');
+      const heroDots = document.querySelectorAll('.slide-dot');
+      let currentSlideIndex = 0;
+      let slideInterval = null;
+
+      function goToHeroSlide(index) {
+        if (!heroSlides.length || index < 0 || index >= heroSlides.length) return;
+        heroSlides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        heroDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+        currentSlideIndex = index;
+        resetSlideTimer();
+      }
+      window.goToHeroSlide = goToHeroSlide;
+
+      function nextHeroSlide() {
+        goToHeroSlide((currentSlideIndex + 1) % heroSlides.length);
+      }
+
+      function resetSlideTimer() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextHeroSlide, 5000);
+      }
+
+      const stage = document.getElementById('heroCrossfadeStage');
+      if (stage) {
+        stage.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        stage.addEventListener('mouseleave', resetSlideTimer);
+      }
+
+      resetSlideTimer();
+    })();
+
+    // 3D Tilt Effect on Format Cards
     document.querySelectorAll('.fmt-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
