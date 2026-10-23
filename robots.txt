@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leonardolazza.github.io/rite_of_passage/sitemap.xml
