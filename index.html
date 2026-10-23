@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rite of Passage — Eventos a Medida</title>
 <link rel="icon" href="assets/favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,7 +14,7 @@
   <!-- HEADER -->
   <header id="hdr">
     <a class="brand" href="#top" aria-label="Rite of Passage home">
-      <img src="assets/logo_icon.png" alt="Rite of Passage emblem" />
+      <img src="assets/logo_icon.png" alt="Rite of Passage emblem" width="38" height="38" decoding="async" />
       <span class="name">Rite of Passage</span>
     </a>
     <nav class="top">
@@ -25,10 +27,11 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <video class="hero-media" autoplay muted loop playsinline poster="assets/hero_poster.webp" aria-hidden="true">
+      <source src="assets/hero_video.webm" type="video/webm">
       <source src="assets/hero_video.mp4" type="video/mp4">
     </video>
     <div class="wrap hero-center">
-      <img class="brandmark" src="assets/logo_brand.png" alt="Rite of Passage" />
+      <img class="brandmark" src="assets/logo_brand.png" alt="Rite of Passage" width="160" height="160" fetchpriority="high" decoding="async" />
       <span class="eyebrow reveal">Productora de Sonido de Primer Nivel</span>
       <h1 class="reveal d1">ARQUITECTURA SONORA DE <span class="accent">VANGUARDIA</span></h1>
       <p class="sub reveal d2">Curaduría Musical · Formación · Hardware · Producción Integral</p>
@@ -71,7 +74,7 @@
         <div class="story-item reveal">
           <div class="story-node">01</div>
           <button class="story-media shot" type="button" data-full="assets/escenario_6.jpg" aria-label="Ver escenario en grande">
-            <img src="assets/escenario_6.jpg" alt="Atelier Bespoke — Diseñamos ritos" />
+            <img src="assets/escenario_6.jpg" alt="Atelier Bespoke — Diseñamos ritos" loading="lazy" decoding="async" width="800" height="533" />
           </button>
           <div class="story-text">
             <span class="story-tag">01 // EXPERIENCIAS </span>
@@ -86,7 +89,7 @@
         <div class="story-item reverse reveal">
           <div class="story-node">02</div>
           <button class="story-media shot" type="button" data-full="assets/escenario_5.jpg" aria-label="Ver escenario en grande">
-            <img src="assets/escenario_5.jpg" alt="Visión Única — Cada velada es bespoke" />
+            <img src="assets/escenario_5.jpg" alt="Visión Única — Cada velada es bespoke" loading="lazy" decoding="async" width="800" height="533" />
           </button>
           <div class="story-text">
             <span class="story-tag">02 // CURADURIA VANGUARDISTA</span>
@@ -101,7 +104,7 @@
         <div class="story-item reveal">
           <div class="story-node">03</div>
           <button class="story-media shot" type="button" data-full="assets/escenario_4.jpg" aria-label="Ver escenario en grande">
-            <img src="assets/escenario_4.jpg" alt="El Instante Cumbre — Nuestro Objetivo" />
+            <img src="assets/escenario_4.jpg" alt="El Instante Cumbre — Nuestro Objetivo" loading="lazy" decoding="async" width="800" height="533" />
           </button>
           <div class="story-text">
             <span class="story-tag">03 // EL INSTANTE CUMBRE</span>
@@ -283,7 +286,7 @@
       <a href="joah.html" class="team-card reveal d1" id="teamCard" tabindex="0" style="text-decoration: none; color: inherit; cursor: pointer; display: grid;">
         <canvas id="teamCanvas" class="team-canvas"></canvas>
         <div class="team-media-wrap">
-          <img src="assets/joah_1.jpg" alt="Joa Lamtzev" />
+          <img src="assets/joah_1.jpg" alt="Joa Lamtzev" loading="lazy" decoding="async" width="600" height="750" />
           <div class="team-overlay"></div>
           <div class="team-badge"><span class="team-badge-dot"></span> MÚSICO DE ATELIER</div>
         </div>
@@ -386,7 +389,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <img src="assets/logo_icon.png" alt="Rite of Passage" />
+          <img src="assets/logo_icon.png" alt="Rite of Passage" loading="lazy" decoding="async" width="40" height="40" />
           <div>
             <div class="t">Rite of Passage</div>
             <div class="s">Bespoke Events</div>
