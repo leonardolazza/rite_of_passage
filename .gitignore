@@ -21,3 +21,10 @@ $RECYCLE.BIN/
 # Logs and caches
 *.log
 __pycache__/
+
+# Raw media sources & redundant backup directories
+*.mkv
+*.mov
+*.raw
+assets/_fuentes/
+imagenes/
