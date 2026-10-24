@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileDrawer from '../components/MobileDrawer.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { siteConfig } from '../data/siteConfig';
 import { assetUrl } from '../utils/paths';
 
@@ -10,13 +12,33 @@ interface Props {
   description?: string;
   ogImage?: string;
   isEditorial?: boolean;
+  schemaJson?: Record<string, unknown>;
 }
 
 const {
   title = `${siteConfig.name} — ${siteConfig.tagline}`,
   description = `${siteConfig.name} — ${siteConfig.sub}`,
   ogImage = '/assets/hero_poster.webp',
-  isEditorial = false
+  isEditorial = false,
+  schemaJson = {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Rite of Passage",
+    "alternateName": "Rite of Passage Atelier Sonoro",
+    "url": "https://leonardolazza.github.io/rite_of_passage/",
+    "logo": "https://leonardolazza.github.io/rite_of_passage/assets/logo_brand.png",
+    "description": "Atelier sonoro y productora de vanguardia para eventos bespoke, galas exclusivas y bodas de alta gama.",
+    "telephone": siteConfig.phone,
+    "email": siteConfig.email,
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Joa Lamtzev",
+        "jobTitle": "Saxofonista Profesional y DJ Residente",
+        "url": "https://leonardolazza.github.io/rite_of_passage/artistas/joa-lamtzev/"
+      }
+    ]
+  }
 } = Astro.props;
 ---
 
@@ -29,14 +51,10 @@ const {
   <meta name="description" content={description} />
   <link rel="icon" href={assetUrl("/assets/favicon.png")} type="image/png" />
 
-  {isEditorial && (
-    <>
-      <!-- Google Fonts Preconnect & Subsets (Only for Editorial Artist Page) -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    </>
-  )}
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheets (100% Pixel-Perfect Match with original index.html & joah.html) -->
   {isEditorial ? (
@@ -51,6 +69,9 @@ const {
   <meta property="og:image" content={assetUrl(ogImage)} />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
 </head>
 <body class={isEditorial ? "joah-page" : ""}>
 
@@ -62,6 +83,10 @@ const {
   </main>
 
   <Footer isEditorial={isEditorial} />
+
+  <!-- Persistent Atelier Sound Player & WhatsApp CTA -->
+  <AudioPlayer />
+  <WhatsAppButton customMessage={isEditorial ? "Hola, quisiera consultar disponibilidad para contratar a Joa Lamtzev" : undefined} />
 
   <script>
     // Header shrink on scroll
