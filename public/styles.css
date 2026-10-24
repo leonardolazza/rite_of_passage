@@ -1646,15 +1646,36 @@ body.drawer-open {
   flex-shrink: 0;
 }
 
-.drawer-cta {
+.drawer-cta,
+a.drawer-cta.mobile-link {
   width: 100%;
+  display: block;
   text-align: center;
-  padding: 13px 20px;
-  font-size: 12px;
+  padding: 14px 20px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 6px;
+  background: var(--crimson, #c8262f) !important;
+  color: #ffffff !important;
+  border: 1px solid #d82b35 !important;
+  box-shadow: 0 4px 22px rgba(200, 38, 47, 0.45);
+  transform: none !important;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.drawer-cta:hover,
+.drawer-cta:focus,
+a.drawer-cta.mobile-link:hover,
+a.drawer-cta.mobile-link:focus {
+  background: #e02b35 !important;
+  border-color: #ff3b46 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 28px rgba(200, 38, 47, 0.7) !important;
+  transform: translateY(-2px) !important;
 }
 
 .drawer-wa-btn {
