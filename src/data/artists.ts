@@ -80,7 +80,7 @@ export const artists: ArtistProfile[] = [
         title: 'DJ Set',
         pill: 'MAIN SHOW CLÍMAX',
         pillStyle: 'crimson',
-        description: 'Potente show en vivo que fusiona el sonido orgánico del saxofón con frecuencias electrónicas y beats de club contemporáneos.',
+        description: 'Sesiones de electrónica con foco en el groove y la progresión en pista. Una selección precisa diseñada para marcar el pulso de la noche a través de transiciones sólidas y sonido vanguardista.',
         image: '/assets/joah/joa_saxo_16.webp',
         cta: 'Consultar Formato DJ Set ↗',
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set*.'
