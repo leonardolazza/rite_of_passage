@@ -1,0 +1,64 @@
+/* ============================================================
+   RITE OF PASSAGE — DESIGN TOKENS (UNIFIED SYSTEM)
+   ============================================================ */
+
+:root {
+  /* BACKGROUNDS */
+  --bg: #0c0c0e;
+  --bg-2: #131316;
+  --bg-dark: #070709;
+  --bg-surface: #0f0d14;
+  --surface: #18181c;
+  --surface-2: #1f1f24;
+  --bg-card: rgba(18, 14, 22, 0.88);
+  --line: #2a2a30;
+
+  /* CRIMSON PALETTE */
+  --crimson: #c8262f;
+  --crimson-d: #8e1a20;
+  --crimson-main: #800e2e;
+  --crimson-glow: #b91c47;
+  --border-crimson: rgba(128, 14, 46, 0.4);
+
+  /* GOLD & ACCENTS */
+  --gold: #d4af37;
+  --gold-accent: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.4);
+  --gold-subtle: rgba(212, 175, 55, 0.12);
+  --border-gold: rgba(212, 175, 55, 0.22);
+
+  /* TYPOGRAPHY COLORS */
+  --cream: #f2e9d8;
+  --cream-dim: #cabfa9;
+  --muted: #ada492;
+  --text-primary: #ffffff;
+  --text-cream: #f5e6d3;
+  --text-secondary: #a3959e;
+  --text-muted: #736770;
+
+  /* SHADOWS & GEOMETRY */
+  --shadow: 0 24px 60px rgba(0, 0, 0, .55);
+  --maxw: 1180px;
+
+  /* FONTS */
+  --serif: "Didot", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Plus Jakarta Sans", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-serif-title: 'Cinzel Decorative', serif;
+  --font-serif-body: 'Cormorant Garamond', serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }

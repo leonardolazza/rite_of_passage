@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { artists, type ArtistProfile } from '../../data/artists';
+import { siteConfig } from '../../data/siteConfig';
+import { assetUrl } from '../../utils/paths';
+
+export async function getStaticPaths() {
+  return artists.map(artist => ({
+    params: { slug: artist.slug },
+    props: { artist }
+  }));
+}
+
+interface Props {
+  artist: ArtistProfile;
+}
+
+const { artist } = Astro.props;
+---
+
+<BaseLayout
+  title={`${artist.name} — ${artist.role} | ${siteConfig.name} Atelier`}
+  description={artist.heroParagraph}
+  ogImage={artist.avatar}
+  isEditorial={true}
+>
+  <!-- HERO ASIMÉTRICO (EDITORIAL LUXURY) -->
+  <section class="editorial-hero">
+    <div class="hero-text-col">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        {artist.badge}
+      </div>
+      <h1 class="hero-headline">
+        La elegancia del <em>{artist.headlineEm}</em> contemporáneo.
+      </h1>
+      <p class="hero-paragraph">
+        {artist.heroParagraph}
+      </p>
+      <div class="hero-cta-group">
+        <a href={`https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(`Hola, quisiera solicitar el dossier VIP de ${artist.name}.`)}`} target="_blank" class="btn-gold-sm" style="font-size: 0.85rem; padding: 12px 28px;">Solicitar Dossier VIP</a>
+        <a href="#formatos" class="btn-outline-gold">Explorar Propuestas</a>
+      </div>
+    </div>
+    
+    <div class="hero-media-wrapper">
+      <!-- CINEMATIC CROSSFADE SLIDESHOW -->
+      <div class="hero-crossfade-stage" id="heroCrossfadeStage">
+        {artist.slideshow.map((slideSrc, idx) => (
+          <div class={`hero-slide ${idx === 0 ? 'active' : ''}`} data-src={assetUrl(slideSrc)}>
+            <img src={assetUrl(slideSrc)} alt={`${artist.name} ${idx + 1}`} fetchpriority={idx === 0 ? "high" : "auto"} loading={idx === 0 ? "eager" : "lazy"} decoding="async" />
+          </div>
+        ))}
+
+        <!-- Indicador de Progreso Discreto en la Base -->
+        <div class="hero-slide-progress" id="heroSlideProgress">
+          {artist.slideshow.map((_, idx) => (
+            <div class={`slide-dot ${idx === 0 ? 'active' : ''}`} data-index={idx}></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFIESTO ARTÍSTICO -->
+  <section class="section-manifesto" style={`background-image: linear-gradient(180deg, rgba(7, 7, 9, 0.88) 0%, rgba(7, 7, 9, 0.68) 50%, rgba(7, 7, 9, 0.96) 100%), radial-gradient(circle at center, rgba(128, 14, 46, 0.48) 0%, transparent 80%), url('${assetUrl(artist.manifestoBg)}');`}>
+    <div class="manifesto-title">
+      “{artist.quote}”
+    </div>
+    <div class="manifesto-author">— {artist.name}</div>
+  </section>
+
+  <!-- FORMATOS DE SHOW (EXPERIENCIAS SONORAS BESPOKE) -->
+  <section class="section-formats" id="formatos">
+    <div class="formats-header">
+      <div>
+        <span class="fmt-kicker">Formatos de Actuación</span>
+        <h2 class="fmt-title">
+          Experiencias Sonoras
+          <span class="fmt-title-sub">Bespoke</span>
+        </h2>
+      </div>
+      <div class="formats-header-right">
+        <div class="fmt-header-line"></div>
+        <p class="fmt-header-desc">Propuestas escénicas personalizadas para elevar cada atmósfera al máximo estándar.</p>
+      </div>
+    </div>
+
+    <div class="fmt-cards-grid">
+      {artist.formats.map((fmt) => (
+        <div class="fmt-card">
+          <div class="fmt-card-bg">
+            <img src={assetUrl(fmt.image)} alt={fmt.title} loading="lazy" decoding="async" />
+          </div>
+          <div class="fmt-card-overlay"></div>
+          <div class="fmt-card-num">{fmt.number}</div>
+          <div class={`fmt-card-pill ${fmt.pillStyle === 'crimson' ? 'fmt-pill-crimson' : ''}`}>{fmt.pill}</div>
+          <div class="fmt-card-content">
+            <h3>{fmt.title}</h3>
+            <div class={`fmt-soundwave ${fmt.pillStyle === 'crimson' ? 'crimson-wave' : ''}`}>
+              <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+              <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+            </div>
+            <p>{fmt.description}</p>
+            <a href={`https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(fmt.waMessage)}`} target="_blank" class={`fmt-card-cta ${fmt.pillStyle === 'crimson' ? 'fmt-cta-crimson' : ''}`}>
+              {fmt.cta}
+            </a>
+          </div>
+          <div class={`fmt-card-bar ${fmt.pillStyle === 'crimson' ? 'fmt-bar-crimson' : ''}`}></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TRAYECTORIA, FORMACIÓN Y CREDENCIALES -->
+  <section class="section-credentials">
+    <div class="credentials-wrap">
+      <span class="sec-tag">Trayectoria & Formación</span>
+      <h2 class="sec-title">Respaldo Académico y Experiencia</h2>
+
+      <div class="credentials-grid">
+        <!-- FORMACIÓN -->
+        <div class="cred-box">
+          <h3><span>🎷</span> {artist.credentials.educationTitle}</h3>
+          <ul class="cred-list">
+            {artist.credentials.education.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- MARCAS & VENUES -->
+        <div class="cred-box">
+          <h3><span>✨</span> {artist.credentials.venuesTitle}</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">{artist.credentials.venuesSubtitle}</p>
+          <div class="brand-tags-flex">
+            {artist.credentials.venues.map(v => (
+              <span class="brand-chip">{v}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUIPAMIENTO TÉCNICO -->
+      <div class="tech-rider-box">
+        <div class="tech-rider-info">
+          <h4>{artist.credentials.techRider.title}</h4>
+          <p>{artist.credentials.techRider.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APARTADO INSTAGRAM OFICIAL -->
+  <section class="section-instagram">
+    <div class="insta-container">
+      <div class="insta-left">
+        <div class="insta-badge">
+          <span class="insta-icon-grad">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </span>
+          INSTAGRAM OFICIAL · {artist.instagram.handle.toUpperCase()}
+        </div>
+        <h2 class="insta-headline">{artist.instagram.headline}</h2>
+        <p class="insta-desc">{artist.instagram.desc}</p>
+
+        <div class="insta-stats-mini">
+          {artist.instagram.stats.map(st => (
+            <div class="insta-stat-item">
+              <span class="insta-stat-val">{st.val}</span>
+              <span class="insta-stat-lbl">{st.lbl}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href={artist.instagram.url} target="_blank" class="btn-insta-vip">
+          <span>Seguir {artist.instagram.handle} en Instagram</span> ↗
+        </a>
+      </div>
+
+      <div class="insta-phone-wrap">
+        <div class="phone-mockup">
+          <div class="phone-island"><div class="phone-camera"></div></div>
+          <div class="phone-glass-glare"></div>
+          <div class="phone-screen">
+            <img src={assetUrl(artist.instagram.mockupImage)} alt={`Instagram ${artist.name}`} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Hero Slideshow Crossfade Logic
+  const stage = document.getElementById('heroCrossfadeStage');
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.slide-dot');
+
+  if (slides.length && dots.length) {
+    let currentSlide = 0;
+    let slideInterval: any = null;
+    const slideDuration = 4500;
+
+    function setSlide(index: number) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentSlide = index;
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.getAttribute('data-index') || 0);
+        setSlide(idx);
+        resetAutoPlay();
+      });
+    });
+
+    function nextSlide() {
+      setSlide(currentSlide + 1);
+    }
+
+    function startAutoPlay() {
+      if (!slideInterval) {
+        slideInterval = setInterval(nextSlide, slideDuration);
+      }
+    }
+
+    function stopAutoPlay() {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+      }
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    if (stage) {
+      stage.addEventListener('mouseenter', stopAutoPlay);
+      stage.addEventListener('mouseleave', startAutoPlay);
+
+      let touchStartX = 0;
+      stage.addEventListener('touchstart', (e: any) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+      }, { passive: true });
+      stage.addEventListener('touchend', (e: any) => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) nextSlide();
+          else setSlide(currentSlide - 1);
+        }
+        startAutoPlay();
+      }, { passive: true });
+    }
+
+    startAutoPlay();
+  }
+
+  // Kinetic 3D Cards Tilt Logic
+  document.querySelectorAll('.fmt-card').forEach((card: any) => {
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const rx = ((e.clientY - cy) / (rect.height / 2)) * -8;
+      const ry = ((e.clientX - cx) / (rect.width / 2)) * 10;
+      card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      card.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease';
+    });
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform .1s ease, box-shadow .4s ease';
+    });
+  });
+</script>

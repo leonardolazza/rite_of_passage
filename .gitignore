@@ -1,15 +1,30 @@
-# Virtual Environments
+# Node & Astro
+node_modules/
+dist/
+.astro/
+
+# Virtual environments
 .rembg-venv/
 venv/
 .venv/
 env/
 
-# Operating System Files
+# Source and raw media
+assets/_fuentes/
+imagenes/
+*.mkv
+*.mov
+*.raw
+
+# Temporary & system cache
+__pycache__/
+*.pyc
+*.log
+.DS_Store
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-.DS_Store
 
 # IDEs and Editors
 .idea/
@@ -17,14 +32,3 @@ $RECYCLE.BIN/
 *.swp
 *.swo
 *~
-
-# Logs and caches
-*.log
-__pycache__/
-
-# Raw media sources & redundant backup directories
-*.mkv
-*.mov
-*.raw
-assets/_fuentes/
-imagenes/
