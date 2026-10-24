@@ -217,9 +217,9 @@ El repositorio compila y despliega en cada `git push` a `main`:
 - [x] **Botón WhatsApp Flotante**: CTA persistente con mensaje de reserva preconfigurado.
 - [x] **Accesibilidad (a11y)**: Soporte de navegación por teclado, cierre con tecla Escape y bloqueo de scroll de fondo.
 
-### 🔄 Fase 5: Testing, Automatización CI/CD y Calidad (P2)
+### ✅ Fase 5: Testing, Automatización CI/CD y Calidad (P2)
 - [x] **Pipeline de CI/CD**: Despliegue automatizado con GitHub Actions en `.github/workflows/deploy.yml`.
-- [ ] **Tests Unitarios**: Validaciones de datos y formulario de contacto.
+- [x] **Tests Unitarios**: Suite con Vitest cubriendo entidades de configuración, integridad de servicios y rutas canónicas.
 - [ ] **Auditoría Automatizada**: Verificación de Core Web Vitals en Pull Requests.
 
 ---
