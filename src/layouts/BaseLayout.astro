@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileDrawer from '../components/MobileDrawer.astro';
-import AudioPlayer from '../components/AudioPlayer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { siteConfig } from '../data/siteConfig';
 import { assetUrl } from '../utils/paths';
@@ -24,10 +23,10 @@ const {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
     "name": "Rite of Passage",
-    "alternateName": "Rite of Passage Atelier Sonoro",
+    "alternateName": "Rite of Passage",
     "url": "https://leonardolazza.github.io/rite_of_passage/",
     "logo": "https://leonardolazza.github.io/rite_of_passage/assets/logo_brand.png",
-    "description": "Atelier sonoro y productora de vanguardia para eventos bespoke, galas exclusivas y bodas de alta gama.",
+    "description": "Productora de vanguardia para eventos bespoke, galas exclusivas y bodas de alta gama.",
     "telephone": siteConfig.phone,
     "email": siteConfig.email,
     "member": [
@@ -84,8 +83,7 @@ const {
 
   <Footer isEditorial={isEditorial} />
 
-  <!-- Persistent Atelier Sound Player & WhatsApp CTA -->
-  <AudioPlayer />
+  <!-- WhatsApp CTA -->
   <WhatsAppButton customMessage={isEditorial ? "Hola, quisiera consultar disponibilidad para contratar a Joa Lamtzev" : undefined} />
 
   <script>

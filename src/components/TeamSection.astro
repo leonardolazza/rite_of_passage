@@ -21,7 +21,7 @@ import { assetUrl, siteLink } from '../utils/paths';
       <a href={siteLink(`/artistas/${artist.slug}`)} class="team-card reveal d1" id="teamCard" tabindex="0" style="text-decoration: none; color: inherit; cursor: pointer; display: grid;">
         <canvas id="teamCanvas" class="team-canvas"></canvas>
         <div class="team-media-wrap">
-          <img src={assetUrl(artist.avatar)} alt={artist.name} loading="lazy" decoding="async" width="1200" height="1500" />
+          <img src={assetUrl(artist.avatar)} alt={artist.name} loading="lazy" decoding="async" width="640" height="640" />
           <div class="team-overlay"></div>
           <div class="team-badge"><span class="team-badge-dot"></span> {artist.tag}</div>
         </div>
