@@ -1,0 +1,132 @@
+---
+import { artists } from '../data/artists';
+import { withBase } from '../utils/paths';
+---
+
+<!-- INTEGRANTES / TEAM FEATURE -->
+<section class="team section-pad" id="team">
+  <div class="wrap">
+    <!-- SEPARADOR SUPERIOR -->
+    <div class="section-divider">
+      <div class="diamond"></div>
+    </div>
+
+    <div class="sec-head reveal">
+      <span class="kicker">Nuestro Equipo</span>
+      <h2>Nuestros grandes artistas</h2>
+      <p>Las mentes y artesanos que transforman cada visión en una experiencia irrepetible.</p>
+    </div>
+
+    {artists.map((artist) => (
+      <a href={withBase(`/artistas/${artist.slug}`)} class="team-card reveal d1" id="teamCard" tabindex="0" style="text-decoration: none; color: inherit; cursor: pointer; display: grid;">
+        <canvas id="teamCanvas" class="team-canvas"></canvas>
+        <div class="team-media-wrap">
+          <img src={withBase(artist.avatar)} alt={artist.name} loading="lazy" decoding="async" width="1200" height="1500" />
+          <div class="team-overlay"></div>
+          <div class="team-badge"><span class="team-badge-dot"></span> {artist.tag}</div>
+        </div>
+        <div class="team-content">
+          <h3 class="team-name">{artist.name}</h3>
+          <span class="team-role">{artist.role}</span>
+          <p class="team-bio">“{artist.quote}”</p>
+          <span class="team-link-cta" style="display: inline-block; margin-top: 15px; font-family: monospace; font-size: 0.8rem; color: #d4af37; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; border-bottom: 1px solid #d4af37; padding-bottom: 2px;">Ver Dossier Completo →</span>
+        </div>
+      </a>
+    ))}
+
+    <!-- SEPARADOR INFERIOR -->
+    <div class="section-divider">
+      <div class="diamond"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Canvas de partículas doradas optimizado con IntersectionObserver
+  const card = document.getElementById('teamCard');
+  const canvas = document.getElementById('teamCanvas') as HTMLCanvasElement | null;
+  if (card && canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles: any[] = [];
+    let isVisible = false;
+    let animId: number | null = null;
+
+    function resize() {
+      if (!card || !canvas) return;
+      canvas.width = card.offsetWidth;
+      canvas.height = card.offsetHeight;
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    setTimeout(resize, 100);
+
+    class Particle {
+      x = 0; y = 0; size = 0; speedY = 0; speedX = 0; alpha = 0; color = '';
+      constructor() { this.reset(); }
+      reset() {
+        if (!canvas) return;
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + Math.random() * 20;
+        this.size = Math.random() * 3.2 + 1;
+        this.speedY = Math.random() * 1.4 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.alpha = Math.random() * 0.7 + 0.3;
+        this.color = Math.random() > 0.4 ? '#d4af37' : '#f5e6d3';
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.alpha -= 0.005;
+        if (this.alpha <= 0 || this.y < -10) this.reset();
+      }
+      draw() {
+        if (!ctx) return;
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 35; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      if (!isVisible || !ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      animId = requestAnimationFrame(animate);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!isVisible) {
+              isVisible = true;
+              animId = requestAnimationFrame(animate);
+            }
+          } else {
+            isVisible = false;
+            if (animId) {
+              cancelAnimationFrame(animId);
+              animId = null;
+            }
+          }
+        });
+      }, { threshold: 0.05 });
+      io.observe(card);
+    } else {
+      isVisible = true;
+      animate();
+    }
+  }
+</script>

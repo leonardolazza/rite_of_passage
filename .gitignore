@@ -1,0 +1,20 @@
+# Virtual environments
+.rembg-venv/
+venv/
+env/
+
+# Source and raw media
+assets/_fuentes/
+*.mkv
+
+# Node & Astro
+node_modules/
+dist/
+.astro/
+
+# Temporary & system cache
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+

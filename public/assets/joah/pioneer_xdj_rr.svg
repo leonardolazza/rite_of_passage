@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="chassis" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#24242d" />
+      <stop offset="50%" stop-color="#141419" />
+      <stop offset="100%" stop-color="#0a0a0c" />
+    </linearGradient>
+    <linearGradient id="jogRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#555" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f" />
+      <stop offset="50%" stop-color="#030812" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+    <filter id="pioneerGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g filter="url(#pioneerGlow)">
+    <!-- CHASIS PRINCIPAL -->
+    <rect x="20" y="30" width="660" height="340" rx="12" fill="url(#chassis)" stroke="#d4af37" stroke-width="2" />
+    <rect x="30" y="40" width="640" height="320" rx="8" fill="#121217" stroke="#2a2a35" stroke-width="1" />
+
+    <!-- PANTALLA CENTRAL DE ALTA DEFINICIÓN (7 PULGADAS) -->
+    <rect x="250" y="55" width="200" height="120" rx="6" fill="url(#screenGrad)" stroke="#384252" stroke-width="2" />
+    <!-- Formas de onda en pantalla (Waveforms duales) -->
+    <path d="M260,95 Q280,75 300,95 T340,95 T380,95 T420,95 T440,95" fill="none" stroke="#00f0ff" stroke-width="2.5" />
+    <path d="M260,135 Q280,150 300,135 T340,135 T380,135 T420,135 T440,135" fill="none" stroke="#d4af37" stroke-width="2.5" />
+    <!-- BPM / Track info -->
+    <text x="260" y="75" font-family="monospace" font-size="10" fill="#00f0ff" font-weight="bold">124.0 BPM</text>
+    <text x="390" y="75" font-family="monospace" font-size="10" fill="#d4af37" font-weight="bold">DECK 1 / 2</text>
+    <text x="350" y="115" font-family="sans-serif" font-size="9" fill="#fff" text-anchor="middle" letter-spacing="1">LIVE SAX SESSION</text>
+
+    <!-- LOGO PIONEER DJ -->
+    <text x="350" y="48" font-family="sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold" letter-spacing="2">Pioneer DJ</text>
+    <text x="350" y="192" font-family="monospace" font-size="9" fill="#d4af37" text-anchor="middle" letter-spacing="1.5">XDJ-RR SYSTEM</text>
+
+    <!-- SECCIÓN MIXER CENTRAL -->
+    <g fill="#222" stroke="#444" stroke-width="1">
+      <!-- EQ Knobs Deck 1 -->
+      <circle cx="310" cy="215" r="8" fill="#18181f" stroke="#d4af37" />
+      <circle cx="310" cy="240" r="8" fill="#18181f" stroke="#d4af37" />
+      <circle cx="310" cy="265" r="8" fill="#18181f" stroke="#d4af37" />
+      
+      <!-- EQ Knobs Deck 2 -->
+      <circle cx="390" cy="215" r="8" fill="#18181f" stroke="#d4af37" />
+      <circle cx="390" cy="240" r="8" fill="#18181f" stroke="#d4af37" />
+      <circle cx="390" cy="265" r="8" fill="#18181f" stroke="#d4af37" />
+
+      <!-- Vúmetros LED centrales -->
+      <line x1="345" y1="210" x2="345" y2="280" stroke="#00f0ff" stroke-width="3" stroke-dasharray="3,2" />
+      <line x1="355" y1="210" x2="355" y2="280" stroke="#d4af37" stroke-width="3" stroke-dasharray="3,2" />
+
+      <!-- Faders de Canal -->
+      <rect x="306" y="290" width="8" height="35" rx="2" fill="#09090b" stroke="#333" />
+      <rect x="303" y="302" width="14" height="10" rx="1" fill="#fff" />
+      
+      <rect x="386" y="290" width="8" height="35" rx="2" fill="#09090b" stroke="#333" />
+      <rect x="383" y="302" width="14" height="10" rx="1" fill="#fff" />
+
+      <!-- Crossfader -->
+      <rect x="320" y="338" width="60" height="6" rx="2" fill="#09090b" stroke="#333" />
+      <rect x="345" y="333" width="10" height="16" rx="1" fill="#d4af37" />
+    </g>
+
+    <!-- DECK 1 (IZQUIERDO) -->
+    <!-- Jog Wheel 1 -->
+    <circle cx="140" cy="180" r="85" fill="#0a0a0e" stroke="url(#jogRim)" stroke-width="5" />
+    <circle cx="140" cy="180" r="70" fill="#14141a" stroke="#222" stroke-width="2" />
+    <circle cx="140" cy="180" r="30" fill="#050508" stroke="#00f0ff" stroke-width="2" />
+    <text x="140" y="184" font-family="sans-serif" font-size="9" fill="#00f0ff" text-anchor="middle">DECK 1</text>
+    <!-- Botones Cue / Play -->
+    <circle cx="65" cy="325" r="14" fill="#111" stroke="#00f0ff" stroke-width="2" />
+    <text x="65" y="329" font-family="sans-serif" font-size="9" fill="#00f0ff" text-anchor="middle" font-weight="bold">CUE</text>
+    
+    <circle cx="100" cy="325" r="14" fill="#111" stroke="#00ff66" stroke-width="2" />
+    <text x="100" y="329" font-family="sans-serif" font-size="10" fill="#00ff66" text-anchor="middle" font-weight="bold">▶</text>
+
+    <!-- Performance Pads Deck 1 -->
+    <g fill="#1a1a24" stroke="#00f0ff" stroke-width="1.5">
+      <rect x="130" y="295" width="22" height="16" rx="2" />
+      <rect x="156" y="295" width="22" height="16" rx="2" />
+      <rect x="182" y="295" width="22" height="16" rx="2" />
+      <rect x="208" y="295" width="22" height="16" rx="2" />
+      
+      <rect x="130" y="318" width="22" height="16" rx="2" fill="#00f0ff" opacity="0.8" />
+      <rect x="156" y="318" width="22" height="16" rx="2" />
+      <rect x="182" y="318" width="22" height="16" rx="2" />
+      <rect x="208" y="318" width="22" height="16" rx="2" fill="#00f0ff" opacity="0.8" />
+    </g>
+
+    <!-- DECK 2 (DERECHO) -->
+    <!-- Jog Wheel 2 -->
+    <circle cx="560" cy="180" r="85" fill="#0a0a0e" stroke="url(#jogRim)" stroke-width="5" />
+    <circle cx="560" cy="180" r="70" fill="#14141a" stroke="#222" stroke-width="2" />
+    <circle cx="560" cy="180" r="30" fill="#050508" stroke="#d4af37" stroke-width="2" />
+    <text x="560" y="184" font-family="sans-serif" font-size="9" fill="#d4af37" text-anchor="middle">DECK 2</text>
+    <!-- Botones Cue / Play -->
+    <circle cx="485" cy="325" r="14" fill="#111" stroke="#d4af37" stroke-width="2" />
+    <text x="485" y="329" font-family="sans-serif" font-size="9" fill="#d4af37" text-anchor="middle" font-weight="bold">CUE</text>
+    
+    <circle cx="520" cy="325" r="14" fill="#111" stroke="#00ff66" stroke-width="2" />
+    <text x="520" y="329" font-family="sans-serif" font-size="10" fill="#00ff66" text-anchor="middle" font-weight="bold">▶</text>
+
+    <!-- Performance Pads Deck 2 -->
+    <g fill="#1a1a24" stroke="#d4af37" stroke-width="1.5">
+      <rect x="550" y="295" width="22" height="16" rx="2" />
+      <rect x="576" y="295" width="22" height="16" rx="2" />
+      <rect x="602" y="295" width="22" height="16" rx="2" />
+      <rect x="628" y="295" width="22" height="16" rx="2" />
+      
+      <rect x="550" y="318" width="22" height="16" rx="2" fill="#d4af37" opacity="0.8" />
+      <rect x="576" y="318" width="22" height="16" rx="2" />
+      <rect x="602" y="318" width="22" height="16" rx="2" />
+      <rect x="628" y="318" width="22" height="16" rx="2" fill="#d4af37" opacity="0.8" />
+    </g>
+
+    <!-- Pitch Faders -->
+    <rect x="55" y="80" width="6" height="55" rx="2" fill="#050508" stroke="#333" />
+    <rect x="51" y="105" width="14" height="8" rx="1" fill="#aaa" />
+    
+    <rect x="640" y="80" width="6" height="55" rx="2" fill="#050508" stroke="#333" />
+    <rect x="636" y="105" width="14" height="8" rx="1" fill="#aaa" />
+  </g>
+</svg>

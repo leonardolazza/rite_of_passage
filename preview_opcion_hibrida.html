@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview — Opción Híbrida / Tarjeta Flotante</title>
+<link rel="stylesheet" href="joah.css" />
+<style>
+  /* Modificación inspirada en mantener el diseño actual pero con una tarjeta flotante elegante sobre fondo inmersivo */
+  .editorial-hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, rgba(11,11,15,0.92) 0%, rgba(15,15,22,0.85) 100%), url('assets/joah/joa_saxo_13.webp') center/cover no-repeat;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 5% 60px !important;
+  }
+  .hero-card-glass {
+    background: rgba(20, 20, 26, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 45px 50px;
+    max-width: 850px;
+    width: 100%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(155, 81, 224, 0.15);
+    position: relative;
+    z-index: 2;
+  }
+  .hero-headline { font-size: clamp(2.2rem, 3.8vw, 3.5rem); margin-bottom: 20px; }
+  .hero-paragraph { font-size: 1rem; margin-bottom: 30px; }
+</style>
+</head>
+<body class="joah-page">
+
+  <header class="editorial-header" style="position: relative; z-index: 10;">
+    <a href="index.html#team" class="back-link">← Volver</a>
+    <a href="#" class="brand-logo">JOA LAMTZEV</a>
+  </header>
+
+  <section class="editorial-hero">
+    <div class="hero-card-glass">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        MÚSICO DE ATELIER · RITE OF PASSAGE
+      </div>
+      <h1 class="hero-headline">
+        La elegancia del <em>saxofón</em> contemporáneo.
+      </h1>
+      <p class="hero-paragraph">
+        Joa Lamtzev esculpe la atmósfera de veladas exclusivas a través del saxofón. Una curaduría sonora impecable donde el virtuosismo clásico se entrelaza con la sofisticación moderna y los ritmos de vanguardia.
+      </p>
+      <div class="hero-cta-group">
+        <a href="https://wa.me/5492914074772" target="_blank" class="btn-gold-sm" style="font-size: 0.85rem; padding: 12px 28px;">Solicitar Dossier VIP</a>
+        <a href="#formatos" class="btn-outline-gold">Explorar Propuestas</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
