@@ -25,7 +25,7 @@ const { artist } = Astro.props;
   isEditorial={true}
 >
   <!-- HERO ASIMÉTRICO (EDITORIAL LUXURY) -->
-  <section class="editorial-hero">
+  <section class="editorial-hero" id="top">
     <div class="hero-text-col">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -63,7 +63,7 @@ const { artist } = Astro.props;
   </section>
 
   <!-- MANIFIESTO ARTÍSTICO -->
-  <section class="section-manifesto" style={`background-image: linear-gradient(180deg, rgba(7, 7, 9, 0.88) 0%, rgba(7, 7, 9, 0.68) 50%, rgba(7, 7, 9, 0.96) 100%), radial-gradient(circle at center, rgba(128, 14, 46, 0.48) 0%, transparent 80%), url('${assetUrl(artist.manifestoBg)}');`}>
+  <section class="section-manifesto" id="manifiesto" style={`background-image: linear-gradient(180deg, rgba(7, 7, 9, 0.88) 0%, rgba(7, 7, 9, 0.68) 50%, rgba(7, 7, 9, 0.96) 100%), radial-gradient(circle at center, rgba(128, 14, 46, 0.48) 0%, transparent 80%), url('${assetUrl(artist.manifestoBg)}');`}>
     <div class="manifesto-title">
       “{artist.quote}”
     </div>
@@ -113,7 +113,7 @@ const { artist } = Astro.props;
   </section>
 
   <!-- TRAYECTORIA, FORMACIÓN Y CREDENCIALES -->
-  <section class="section-credentials">
+  <section class="section-credentials" id="trayectoria">
     <div class="credentials-wrap">
       <span class="sec-tag">Trayectoria & Formación</span>
       <h2 class="sec-title">Respaldo Académico y Experiencia</h2>
@@ -152,7 +152,7 @@ const { artist } = Astro.props;
   </section>
 
   <!-- APARTADO INSTAGRAM OFICIAL -->
-  <section class="section-instagram">
+  <section class="section-instagram" id="instagram">
     <div class="insta-container">
       <div class="insta-left">
         <div class="insta-badge">
@@ -269,8 +269,9 @@ const { artist } = Astro.props;
     startAutoPlay();
   }
 
-  // Kinetic 3D Cards Tilt Logic
+  // Kinetic 3D Cards Tilt Logic (Desktop Mouse + Mobile Touch Drag)
   document.querySelectorAll('.fmt-card').forEach((card: any) => {
+    // Mouse hover tilt (Desktop)
     card.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = card.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
@@ -286,5 +287,36 @@ const { artist } = Astro.props;
     card.addEventListener('mouseenter', () => {
       card.style.transition = 'transform .1s ease, box-shadow .4s ease';
     });
+
+    // Touch tilt on mobile swipe / touch (cuando se les pasa el dedo)
+    function applyTouchTilt(touch: Touch) {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const rx = Math.max(-12, Math.min(12, ((touch.clientY - cy) / (rect.height / 2)) * -10));
+      const ry = Math.max(-14, Math.min(14, ((touch.clientX - cx) / (rect.width / 2)) * 12));
+      card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
+    }
+
+    card.addEventListener('touchstart', (e: TouchEvent) => {
+      if (!e.touches || !e.touches[0]) return;
+      card.classList.add('touch-active');
+      card.style.transition = 'transform .08s ease-out, box-shadow .3s ease';
+      applyTouchTilt(e.touches[0]);
+    }, { passive: true });
+
+    card.addEventListener('touchmove', (e: TouchEvent) => {
+      if (!e.touches || !e.touches[0]) return;
+      applyTouchTilt(e.touches[0]);
+    }, { passive: true });
+
+    const endTouch = () => {
+      card.classList.remove('touch-active');
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      card.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease';
+    };
+
+    card.addEventListener('touchend', endTouch, { passive: true });
+    card.addEventListener('touchcancel', endTouch, { passive: true });
   });
 </script>

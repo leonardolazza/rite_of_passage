@@ -75,7 +75,7 @@ const {
 <body class={isEditorial ? "joah-page" : ""}>
 
   <Header isEditorial={isEditorial} />
-  {!isEditorial && <MobileDrawer />}
+  <MobileDrawer isEditorial={isEditorial} />
 
   <main>
     <slot />
