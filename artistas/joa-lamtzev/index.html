@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../joah.css?v=2.2" />
+  <link rel="stylesheet" href="../../joah.css?v=2.3" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -165,6 +165,18 @@
         <div class="hero-slide" data-src="../../assets/joah/joa_saxo_7.jpg">
           <img src="../../assets/joah/joa_saxo_7.jpg" alt="Joa Lamtzev 7" loading="lazy" decoding="async" width="800" height="1000" />
         </div>
+
+        <!-- Flechas de Navegación (Control Manual de Fotos) -->
+        <button class="hero-slide-nav hero-slide-prev" id="heroSlidePrev" aria-label="Foto anterior" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="hero-slide-nav hero-slide-next" id="heroSlideNext" aria-label="Siguiente foto" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
 
         <!-- Indicador de Progreso Discreto en la Base -->
         <div class="hero-slide-progress" onclick="event.stopPropagation()">
@@ -414,9 +426,24 @@
         goToHeroSlide((currentSlideIndex + 1) % heroSlides.length);
       }
 
-      function resetSlideTimer() {
-        if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(nextHeroSlide, 5000);
+      function prevHeroSlide() {
+        goToHeroSlide((currentSlideIndex - 1 + heroSlides.length) % heroSlides.length);
+      }
+      window.prevHeroSlide = prevHeroSlide;
+
+      const prevBtn = document.getElementById('heroSlidePrev');
+      const nextBtn = document.getElementById('heroSlideNext');
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevHeroSlide();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextHeroSlide();
+        });
       }
 
       const stage = document.getElementById('heroCrossfadeStage');
