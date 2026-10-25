@@ -1,7 +1,7 @@
 export interface ShowFormat {
   number: string;
   title: string;
-  pill: string;
+  pill?: string;
   pillStyle?: 'gold' | 'crimson';
   description: string;
   image: string;
@@ -69,7 +69,6 @@ export const artists: ArtistProfile[] = [
       {
         number: '01',
         title: 'Sax Live',
-        pill: 'RECEPTION MOMENT',
         description: 'Interpretaciones de saxofón en vivo diseñadas para acompañar distintos momentos del evento con elegancia y presencia.',
         image: '/assets/joah/joa_saxo_12.webp',
         cta: 'Consultar Formato Sax Live ↗',
@@ -78,7 +77,6 @@ export const artists: ArtistProfile[] = [
       {
         number: '02',
         title: 'DJ Set',
-        pill: 'MAIN SHOW CLÍMAX',
         pillStyle: 'crimson',
         description: 'Sesiones de electrónica con foco en el groove y la progresión en pista. Una selección precisa diseñada para marcar el pulso de la noche a través de transiciones sólidas y sonido vanguardista.',
         image: '/assets/joah/joa_saxo_16.webp',
@@ -88,7 +86,6 @@ export const artists: ArtistProfile[] = [
       {
         number: '03',
         title: 'DJ Set Sax Live',
-        pill: 'BESPOKE ATELIER',
         description: 'Experiencia musical compuesta íntegramente a medida. Formación instrumental personalizada y ensamble exclusivo para la ocasión.',
         image: '/assets/joah/joa_saxo_17.webp',
         cta: 'Consultar Formato DJ Set Sax Live ↗',

@@ -106,7 +106,9 @@ const { artist } = Astro.props;
           </div>
           <div class="fmt-card-overlay"></div>
           <div class="fmt-card-num">{fmt.number}</div>
-          <div class={`fmt-card-pill ${fmt.pillStyle === 'crimson' ? 'fmt-pill-crimson' : ''}`}>{fmt.pill}</div>
+          {fmt.pill && (
+            <div class={`fmt-card-pill ${fmt.pillStyle === 'crimson' ? 'fmt-pill-crimson' : ''}`}>{fmt.pill}</div>
+          )}
           <div class="fmt-card-content">
             <h3>{fmt.title}</h3>
             <div class={`fmt-soundwave ${fmt.pillStyle === 'crimson' ? 'crimson-wave' : ''}`}>
