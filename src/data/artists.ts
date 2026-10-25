@@ -87,12 +87,12 @@ export const artists: ArtistProfile[] = [
       },
       {
         number: '03',
-        title: 'DJ Live Set Sax',
+        title: 'DJ Set Sax Live',
         pill: 'BESPOKE ATELIER',
         description: 'Experiencia musical compuesta íntegramente a medida. Formación instrumental personalizada y ensamble exclusivo para la ocasión.',
         image: '/assets/joah/joa_saxo_17.webp',
-        cta: 'Consultar Formato DJ Live Set Sax ↗',
-        waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Live Set Sax*.'
+        cta: 'Consultar Formato DJ Set Sax Live ↗',
+        waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set Sax Live*.'
       }
     ],
     credentials: {
