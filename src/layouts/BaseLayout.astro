@@ -57,9 +57,9 @@ const {
 
   <!-- Core Stylesheets (100% Pixel-Perfect Match with original index.html & joah.html) -->
   {isEditorial ? (
-    <link rel="stylesheet" href={assetUrl("/joah.css")} />
+    <link rel="stylesheet" href={`${assetUrl("/joah.css")}?v=2.2`} />
   ) : (
-    <link rel="stylesheet" href={assetUrl("/styles.css")} />
+    <link rel="stylesheet" href={`${assetUrl("/styles.css")}?v=2.2`} />
   )}
 
   <!-- Open Graph / Social Sharing -->
