@@ -54,6 +54,15 @@ describe('Artist Entity & Mini-site Scaling', () => {
       expect(format.waMessage).toBeTruthy();
     });
   });
+
+  it('should validate featured live track data when available', () => {
+    const joa = artists.find(a => a.slug === 'joa-lamtzev')!;
+    expect(joa.featuredTrack).toBeDefined();
+    expect(joa.featuredTrack?.title).toBe('Blinding Lights');
+    expect(joa.featuredTrack?.audioSrc).toContain('.mp3');
+    expect(joa.featuredTrack?.cover).toContain('.webp');
+    expect(joa.featuredTrack?.instagramUrl).toContain('instagram.com');
+  });
 });
 
 describe('Routing & Asset Path Utility', () => {

@@ -9,6 +9,26 @@ export interface ShowFormat {
   waMessage: string;
 }
 
+export interface FeaturedTrackCredit {
+  role: string;
+  name: string;
+  url?: string;
+}
+
+export interface FeaturedTrack {
+  title: string;
+  originalArtist: string;
+  sessionType: string;
+  badge: string;
+  audioSrc: string;
+  cover: string;
+  duration: string;
+  instagramUrl: string;
+  description: string;
+  credits?: FeaturedTrackCredit[];
+  tags?: string[];
+}
+
 export interface ArtistProfile {
   slug: string;
   name: string;
@@ -23,6 +43,7 @@ export interface ArtistProfile {
   slideshow: string[];
   formats: ShowFormat[];
   manifestoBg: string;
+  featuredTrack?: FeaturedTrack;
   credentials: {
     educationTitle: string;
     education: string[];
@@ -92,6 +113,23 @@ export const artists: ArtistProfile[] = [
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set Sax Live*.'
       }
     ],
+    featuredTrack: {
+      title: 'Blinding Lights',
+      originalArtist: 'The Weeknd',
+      sessionType: 'Sax Session en Vivo',
+      badge: 'SESIÓN EN VIVO · EXCLUSIVO',
+      audioSrc: '/assets/joah/joa_saxx_blinding_lights.mp3',
+      cover: '/assets/joah/joa_blinding_lights_cover.webp',
+      duration: '02:53',
+      instagramUrl: 'https://www.instagram.com/p/DcpPdDOtAFl/',
+      description: 'Una reinterpretación que fusiona la energía del pop contemporáneo y los sintetizadores de The Weeknd con el virtuosismo y la calidez sonora del saxofón en vivo. Grabada en exclusiva en María Cervecería para la propuesta escénica de Joa Lamtzev.',
+      tags: ['Sax Live', 'The Weeknd', 'Bahía Blanca'],
+      credits: [
+        { role: 'Locación', name: '@cerveza.maria', url: 'https://instagram.com/cerveza.maria' },
+        { role: 'Dirección Artística', name: '@lean.holman', url: 'https://instagram.com/lean.holman' },
+        { role: 'Vestuario & Styling', name: '@fashion.mom14', url: 'https://instagram.com/fashion.mom14' }
+      ]
+    },
     credentials: {
       educationTitle: 'Formación & Maestría',
       education: [

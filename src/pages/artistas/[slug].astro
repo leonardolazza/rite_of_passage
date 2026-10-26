@@ -126,6 +126,193 @@ const { artist } = Astro.props;
     </div>
   </section>
 
+  <!-- SECCIÓN: SESIÓN EN VIVO (AUDIO PLAYER INTERACTIVO) -->
+  {artist.featuredTrack && (
+    <section class="section-live-session" id="sesion-en-vivo">
+      <div class="session-header">
+        <div>
+          <span class="fmt-kicker">Live Atelier Session</span>
+          <h2 class="fmt-title">
+            Sesión en Vivo
+            <span class="fmt-title-sub">{artist.featuredTrack.title} — {artist.featuredTrack.originalArtist}</span>
+          </h2>
+        </div>
+        <div class="formats-header-right">
+          <div class="fmt-header-line"></div>
+          <p class="fmt-header-desc">Registro sonoro en directo. Escuchá la fusión de virtuosismo de saxofón contemporáneo y elegancia escénica.</p>
+        </div>
+      </div>
+
+      <div class="session-card" id="sessionPlayerCard">
+        <!-- AMBIENT GLOW DECORATIONS -->
+        <div class="session-card-glow"></div>
+
+        <!-- COLUMNA IZQUIERDA: ARTWORK & VINILO -->
+        <div class="session-artwork-col">
+          <div class="vinyl-disc-wrap">
+            <div class="vinyl-disc" id="vinylDisc" aria-hidden="true">
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-center-label">
+                <span class="vinyl-label-text">RITE OF PASSAGE</span>
+              </div>
+            </div>
+            <div class="session-cover-frame">
+              <img
+                src={assetUrl(artist.featuredTrack.cover)}
+                alt={`${artist.featuredTrack.title} - ${artist.name}`}
+                class="session-cover-img"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="cover-gradient-overlay"></div>
+              <div class="session-live-badge">
+                <span class="live-recording-dot"></span>
+                <span>{artist.featuredTrack.badge}</span>
+              </div>
+
+              <!-- ANIMATED SOUND WAVE OVERLAY -->
+              <div class="cover-soundwave" id="coverSoundwave" aria-hidden="true">
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+                <span class="c-wave-bar"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: REPRODUCTOR Y DETALLES -->
+        <div class="session-player-col">
+          <div class="session-meta-top">
+            <span class="session-type-pill">{artist.featuredTrack.sessionType}</span>
+            <span class="session-duration-tag">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.1.8-1.3-4.5-2.7V7z"/>
+              </svg>
+              {artist.featuredTrack.duration}
+            </span>
+          </div>
+
+          <h3 class="session-track-title">{artist.featuredTrack.title}</h3>
+          <p class="session-track-artist">Reinterpretación por <strong>{artist.name}</strong> · Tema original: <em>{artist.featuredTrack.originalArtist}</em></p>
+
+          <p class="session-track-desc">{artist.featuredTrack.description}</p>
+
+          {artist.featuredTrack.credits && (
+            <div class="session-credits-row">
+              {artist.featuredTrack.credits.map((cr) => (
+                <div class="credit-item">
+                  <span class="credit-role">{cr.role}:</span>
+                  {cr.url ? (
+                    <a href={cr.url} target="_blank" rel="noopener noreferrer" class="credit-name">{cr.name}</a>
+                  ) : (
+                    <span class="credit-name">{cr.name}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          <!-- AUDIO ELEMENT -->
+          <audio
+            id="featuredAudioElement"
+            src={assetUrl(artist.featuredTrack.audioSrc)}
+            preload="metadata"
+          ></audio>
+
+          <!-- REPRODUCTOR INTERACTIVO CUSTOM -->
+          <div class="custom-player-widget">
+            <div class="player-controls-row">
+              <!-- BOTÓN REWIND 10s -->
+              <button class="player-skip-btn" id="audioRewindBtn" type="button" aria-label="Retroceder 10 segundos">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>
+                </svg>
+                <span class="skip-num">10</span>
+              </button>
+
+              <!-- BOTÓN PLAY / PAUSE PRINCIPAL -->
+              <button class="player-play-btn" id="audioPlayBtn" type="button" aria-label="Reproducir pista">
+                <svg class="play-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display: none;">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              </button>
+
+              <!-- BOTÓN FORWARD 10s -->
+              <button class="player-skip-btn" id="audioForwardBtn" type="button" aria-label="Adelantar 10 segundos">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 17l5-5-5-5M6 17l5-5-5-5"/>
+                </svg>
+                <span class="skip-num">10</span>
+              </button>
+
+              <!-- DISPLAY TIEMPO Y TRACKBAR -->
+              <div class="player-timeline-wrap">
+                <div class="player-time-display">
+                  <span id="currentTimeDisplay" class="time-elapsed">00:00</span>
+                  <span class="time-separator">/</span>
+                  <span id="totalDurationDisplay" class="time-total">{artist.featuredTrack.duration}</span>
+                </div>
+                <div class="player-progress-bar" id="audioProgressBar" role="slider" aria-label="Progreso del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                  <div class="progress-fill" id="audioProgressFill"></div>
+                  <div class="progress-handle" id="audioProgressHandle"></div>
+                </div>
+              </div>
+
+              <!-- CONTROL DE VOLUMEN -->
+              <div class="player-volume-wrap">
+                <button class="player-mute-btn" id="audioMuteBtn" type="button" aria-label="Silenciar / Activar sonido">
+                  <svg class="vol-icon-high" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                  <svg class="vol-icon-muted" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                  </svg>
+                </button>
+                <input type="range" class="player-volume-slider" id="audioVolumeSlider" min="0" max="1" step="0.05" value="1" aria-label="Volumen" />
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAS DE ACCIÓN: CONTRATAR + VER EN INSTAGRAM -->
+          <div class="session-actions-row">
+            <a
+              href={`https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(`Hola Joa / Rite of Passage, escuché la sesión en vivo de Blinding Lights y quisiera consultar este formato para un evento.`)}`}
+              target="_blank"
+              class="btn-gold-sm"
+              style="font-size: 0.85rem; padding: 12px 24px;"
+            >
+              Consultar Formato Sax Live ↗
+            </a>
+            <a
+              href={artist.featuredTrack.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-session-instagram"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Ver video original en Instagram</span> ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- TRAYECTORIA, FORMACIÓN Y CREDENCIALES -->
   <section class="section-credentials" id="trayectoria">
     <div class="credentials-wrap">
@@ -352,4 +539,170 @@ const { artist } = Astro.props;
     card.addEventListener('touchend', endTouch, { passive: true });
     card.addEventListener('touchcancel', endTouch, { passive: true });
   });
+
+  // Custom Live Session Audio Player Controller
+  const audio = document.getElementById('featuredAudioElement') as HTMLAudioElement | null;
+  const playBtn = document.getElementById('audioPlayBtn');
+  const rewindBtn = document.getElementById('audioRewindBtn');
+  const forwardBtn = document.getElementById('audioForwardBtn');
+  const playIcon = playBtn?.querySelector('.play-icon') as HTMLElement | null;
+  const pauseIcon = playBtn?.querySelector('.pause-icon') as HTMLElement | null;
+  const playerCard = document.getElementById('sessionPlayerCard');
+  const progressBar = document.getElementById('audioProgressBar');
+  const progressFill = document.getElementById('audioProgressFill');
+  const progressHandle = document.getElementById('audioProgressHandle');
+  const currentTimeDisplay = document.getElementById('currentTimeDisplay');
+  const totalDurationDisplay = document.getElementById('totalDurationDisplay');
+  const volumeSlider = document.getElementById('audioVolumeSlider') as HTMLInputElement | null;
+  const muteBtn = document.getElementById('audioMuteBtn');
+  const volIconHigh = muteBtn?.querySelector('.vol-icon-high') as HTMLElement | null;
+  const volIconMuted = muteBtn?.querySelector('.vol-icon-muted') as HTMLElement | null;
+
+  if (audio && playBtn && progressBar && progressFill) {
+    function formatTime(seconds: number) {
+      if (isNaN(seconds) || seconds < 0) return '00:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function updatePlayState(isPlaying: boolean) {
+      if (isPlaying) {
+        if (playIcon) playIcon.style.display = 'none';
+        if (pauseIcon) pauseIcon.style.display = 'block';
+        if (playerCard) playerCard.classList.add('is-playing');
+        playBtn?.setAttribute('aria-label', 'Pausar pista');
+      } else {
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (playerCard) playerCard.classList.remove('is-playing');
+        playBtn?.setAttribute('aria-label', 'Reproducir pista');
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => updatePlayState(true)).catch((err) => {
+          console.warn('Audio playback error:', err);
+        });
+      } else {
+        audio.pause();
+        updatePlayState(false);
+      }
+    });
+
+    rewindBtn?.addEventListener('click', () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 10);
+    });
+
+    forwardBtn?.addEventListener('click', () => {
+      audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${pct}%`;
+      if (progressHandle) progressHandle.style.left = `${pct}%`;
+      if (currentTimeDisplay) currentTimeDisplay.textContent = formatTime(audio.currentTime);
+      progressBar.setAttribute('aria-valuenow', Math.round(pct).toString());
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      if (totalDurationDisplay && !isNaN(audio.duration) && audio.duration > 0) {
+        totalDurationDisplay.textContent = formatTime(audio.duration);
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      updatePlayState(false);
+      progressFill.style.width = '0%';
+      if (progressHandle) progressHandle.style.left = '0%';
+      if (currentTimeDisplay) currentTimeDisplay.textContent = '00:00';
+    });
+
+    audio.addEventListener('pause', () => {
+      updatePlayState(false);
+    });
+
+    audio.addEventListener('play', () => {
+      updatePlayState(true);
+    });
+
+    // Seek scrubber logic
+    function seek(e: MouseEvent | TouchEvent) {
+      const rect = progressBar!.getBoundingClientRect();
+      const clientX = 'touches' in e && e.touches[0] ? e.touches[0].clientX : (e as MouseEvent).clientX;
+      const clickPos = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const percentage = clickPos / rect.width;
+      if (audio.duration) {
+        audio.currentTime = percentage * audio.duration;
+      }
+    }
+
+    let isSeeking = false;
+    progressBar.addEventListener('mousedown', (e) => {
+      isSeeking = true;
+      seek(e);
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (isSeeking) seek(e);
+    });
+    window.addEventListener('mouseup', () => {
+      if (isSeeking) isSeeking = false;
+    });
+
+    progressBar.addEventListener('touchstart', (e) => {
+      isSeeking = true;
+      seek(e);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (isSeeking) seek(e);
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      if (isSeeking) isSeeking = false;
+    });
+
+    // Keyboard navigation
+    progressBar.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      } else if (e.key === 'ArrowRight') {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        playBtn.click();
+      }
+    });
+
+    // Volume controls
+    function updateVolumeIcons() {
+      const isMuted = audio!.muted || audio!.volume === 0;
+      if (volIconHigh) volIconHigh.style.display = isMuted ? 'none' : 'block';
+      if (volIconMuted) volIconMuted.style.display = isMuted ? 'block' : 'none';
+    }
+
+    if (volumeSlider) {
+      volumeSlider.addEventListener('input', () => {
+        const val = parseFloat(volumeSlider.value);
+        audio.volume = val;
+        audio.muted = (val === 0);
+        updateVolumeIcons();
+      });
+    }
+
+    let prevVolume = 1;
+    muteBtn?.addEventListener('click', () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        audio.volume = prevVolume || 1;
+        if (volumeSlider) volumeSlider.value = audio.volume.toString();
+      } else {
+        prevVolume = audio.volume;
+        audio.muted = true;
+        if (volumeSlider) volumeSlider.value = '0';
+      }
+      updateVolumeIcons();
+    });
+  }
 </script>
