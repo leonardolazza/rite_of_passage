@@ -92,7 +92,7 @@ export const artists: ArtistProfile[] = [
         title: 'Sax Live',
         description: 'Interpretaciones de saxofón en vivo diseñadas para acompañar distintos momentos del evento con elegancia y presencia.',
         image: '/assets/joah/joa_saxo_12.webp',
-        cta: 'Consultar Formato Sax Live ↗',
+        cta: 'Consultar Formato Sax Live',
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *Sax Live*.'
       },
       {
@@ -101,7 +101,7 @@ export const artists: ArtistProfile[] = [
         pillStyle: 'crimson',
         description: 'Sesiones de electrónica con foco en el groove y la progresión en pista. Una selección precisa diseñada para marcar el pulso de la noche a través de transiciones sólidas y sonido vanguardista.',
         image: '/assets/joah/joa_saxo_16.webp',
-        cta: 'Consultar Formato DJ Set ↗',
+        cta: 'Consultar Formato DJ Set',
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set*.'
       },
       {
@@ -109,7 +109,7 @@ export const artists: ArtistProfile[] = [
         title: 'DJ Set Sax Live',
         description: 'Una experiencia inmersiva que va más allá de la cabina tradicional. A través de bases rítmicas sólidas e intervenciones melódicas en directo, la presencia del saxo aporta dinámica, organicidad y una vibra distintiva que conecta de forma inmediata con la pista.',
         image: '/assets/joah/joa_saxo_17.webp',
-        cta: 'Consultar Formato DJ Set Sax Live ↗',
+        cta: 'Consultar Formato DJ Set Sax Live',
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set Sax Live*.'
       }
     ],
@@ -123,12 +123,7 @@ export const artists: ArtistProfile[] = [
       duration: '02:53',
       instagramUrl: 'https://www.instagram.com/p/DcpPdDOtAFl/',
       description: 'Una reinterpretación que fusiona la energía del pop contemporáneo y los sintetizadores de The Weeknd con el virtuosismo y la calidez sonora del saxofón en vivo. Grabada en exclusiva en María Cervecería para la propuesta escénica de Joa Lamtzev.',
-      tags: ['Sax Live', 'The Weeknd', 'Bahía Blanca'],
-      credits: [
-        { role: 'Locación', name: '@cerveza.maria', url: 'https://instagram.com/cerveza.maria' },
-        { role: 'Dirección Artística', name: '@lean.holman', url: 'https://instagram.com/lean.holman' },
-        { role: 'Vestuario & Styling', name: '@fashion.mom14', url: 'https://instagram.com/fashion.mom14' }
-      ]
+      tags: ['Sax Live', 'The Weeknd', 'Bahía Blanca']
     },
     credentials: {
       educationTitle: 'Formación & Maestría',

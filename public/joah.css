@@ -1901,39 +1901,7 @@ a.drawer-cta.mobile-link:focus {
   max-width: 680px;
 }
 
-.session-credits-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 24px;
-  margin-bottom: 0;
-  padding-top: 18px;
-  padding-bottom: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
 
-.credit-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.74rem;
-}
-
-.credit-role {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 400;
-}
-
-.credit-name {
-  color: rgba(255, 255, 255, 0.65);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a.credit-name:hover {
-  color: var(--gold-accent);
-  text-decoration: underline;
-}
 
 /* CUSTOM PLAYER CONTROLS WIDGET */
 .custom-player-widget {
@@ -2120,15 +2088,21 @@ a.credit-name:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  max-width: 46px;
+  max-height: 46px;
+  border-radius: 50% !important;
+  aspect-ratio: 1 / 1;
+  padding: 0 !important;
   color: #fceceb;
   background: rgba(200, 38, 47, 0.12);
   border: 1px solid rgba(200, 38, 47, 0.4);
   transition: all 0.25s ease;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .btn-session-instagram:hover {
