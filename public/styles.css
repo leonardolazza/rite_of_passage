@@ -661,6 +661,59 @@
     padding: 95px 0;
   }
 
+  .social-logos-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+  }
+  .social-logo-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+  .social-logo-btn.ig {
+    background: rgba(225, 48, 108, 0.12);
+    color: #ff5c8a;
+    border: 1px solid rgba(225, 48, 108, 0.45);
+  }
+  .social-logo-btn.ig:hover {
+    background: #e1306c;
+    color: #fff;
+    border-color: #e1306c;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 16px 40px rgba(225, 48, 108, 0.5);
+  }
+  .social-logo-btn.yt {
+    background: rgba(255, 0, 0, 0.12);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 0, 0, 0.45);
+  }
+  .social-logo-btn.yt:hover {
+    background: #ff0000;
+    color: #fff;
+    border-color: #ff0000;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 16px 40px rgba(255, 0, 0, 0.5);
+  }
+  .social-logo-btn svg {
+    width: 36px;
+    height: 36px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+  .social-logo-btn:hover svg {
+    transform: scale(1.06);
+  }
+
   .social-multimedia-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1172,6 +1225,45 @@
   .foot-links a { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-dim); transition: color .25s; }
   .foot-links a:hover { color: var(--gold); }
   .foot-base { margin-top: 40px; text-align: center; color: var(--muted); font-size: 12px; letter-spacing: .12em; }
+
+  .foot-social-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .foot-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--cream);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .foot-social-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.25s ease;
+  }
+  .foot-social-icon.ig:hover {
+    background: #e1306c;
+    border-color: #e1306c;
+    color: #fff;
+    box-shadow: 0 0 18px rgba(225, 48, 108, 0.5);
+    transform: translateY(-3px) scale(1.06);
+  }
+  .foot-social-icon.yt:hover {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(200, 38, 47, 0.5);
+    transform: translateY(-3px) scale(1.06);
+  }
 
   .yt-badge-btn, .social-badge-full {
     display: inline-flex; align-items: center; gap: 12px;

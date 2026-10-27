@@ -72,7 +72,7 @@ export const artists: ArtistProfile[] = [
     role: 'Saxofonista y DJ',
     tag: 'MÚSICO DE ATELIER',
     badge: 'MÚSICO DE ATELIER · RITE OF PASSAGE',
-    avatar: '/assets/joah_5.jpg',
+    avatar: '/assets/joah_1.webp',
     headline: 'La elegancia del contemporáneo.',
     headlineEm: 'saxofón',
     heroParagraph: 'Joa Lamtzev esculpe la atmósfera de veladas exclusivas a través del saxofón. Una curaduría sonora impecable donde el virtuosismo clásico se entrelaza con la sofisticación moderna y los ritmos de vanguardia.',
