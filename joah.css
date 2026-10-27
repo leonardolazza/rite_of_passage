@@ -1639,15 +1639,7 @@ a.mobile-link:focus {
 }
 
 .mobile-link .m-arrow {
-  color: rgba(242, 233, 216, 0.35) !important;
-  font-size: 13px !important;
-  transition: transform 0.25s ease, color 0.25s ease !important;
-  flex-shrink: 0 !important;
-}
-
-.mobile-link:hover .m-arrow {
-  transform: translate(3px, -3px) !important;
-  color: var(--crimson, #c8262f) !important;
+  display: none !important;
 }
 
 /* Drawer Footer */

@@ -199,14 +199,14 @@
     filter: grayscale(1) !important;
   }
   .philosophy .quote .who-future {
-    color: var(--gold) !important;
-    text-shadow: 0 0 20px rgba(255, 210, 74, 0.9), 0 0 45px rgba(200, 38, 47, 0.65) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 45px rgba(255, 255, 255, 0.7) !important;
     animation: futureGlow 3.5s ease-in-out infinite alternate;
     display: inline-block;
   }
   @keyframes futureGlow {
-    0% { text-shadow: 0 0 16px rgba(255, 210, 74, 0.65), 0 0 35px rgba(200, 38, 47, 0.4); }
-    100% { text-shadow: 0 0 32px rgba(255, 210, 74, 0.95), 0 0 65px rgba(255, 210, 74, 0.8), 0 0 85px rgba(200, 38, 47, 0.65); }
+    0% { text-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 32px rgba(255, 255, 255, 0.95), 0 0 60px rgba(255, 255, 255, 0.8), 0 0 85px rgba(255, 255, 255, 0.6); }
   }
   .philosophy .rule { width: min(420px, 70%); height: 4px; background: var(--crimson); margin: 28px 0 20px; }
   .philosophy .attr {
@@ -1717,14 +1717,7 @@ body.drawer-open {
 }
 
 .mobile-link .m-arrow {
-  color: rgba(242, 233, 216, 0.35);
-  font-size: 13px;
-  transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.mobile-link:hover .m-arrow {
-  transform: translate(3px, -3px);
-  color: var(--crimson, #c8262f);
+  display: none !important;
 }
 
 /* Drawer Footer */
