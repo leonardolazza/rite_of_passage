@@ -580,36 +580,58 @@ body::after {
   margin-bottom: 2px;
 }
 
-/* BARRAS ECUALIZADORAS DE AUDIO (SOUNDWAVE) */
-.fmt-soundwave {
-  display: flex;
-  align-items: flex-end;
-  gap: 3.5px;
-  height: 16px;
-  margin: 10px 0 6px;
-}
-
-.fmt-soundwave .wave-bar {
-  width: 3.5px;
-  background: var(--gold-accent);
+/* LÍNEA DECORATIVA CON COLOR CORRESPONDIENTE Y ANIMACIÓN */
+.fmt-line {
+  width: 38px;
+  height: 2px;
   border-radius: 2px;
-  animation: fmtWavePulse 1.2s infinite ease-in-out alternate;
+  margin: 12px 0 8px;
+  background: linear-gradient(90deg, var(--gold-accent), #fbe38e);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+  animation: fmtLinePulseGold 2.8s infinite ease-in-out;
+  transition: width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
 }
 
-.fmt-soundwave.crimson-wave .wave-bar {
-  background: var(--crimson-glow);
+.fmt-card:hover .fmt-line {
+  width: 65px;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.85);
 }
 
-.fmt-soundwave .wave-bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
-.fmt-soundwave .wave-bar:nth-child(2) { height: 75%; animation-delay: 0.35s; }
-.fmt-soundwave .wave-bar:nth-child(3) { height: 100%; animation-delay: 0.55s; }
-.fmt-soundwave .wave-bar:nth-child(4) { height: 40%; animation-delay: 0.2s; }
-.fmt-soundwave .wave-bar:nth-child(5) { height: 85%; animation-delay: 0.45s; }
-.fmt-soundwave .wave-bar:nth-child(6) { height: 60%; animation-delay: 0.65s; }
+.fmt-line.crimson-line {
+  background: linear-gradient(90deg, var(--crimson-glow), #ff4a5a);
+  box-shadow: 0 0 10px rgba(200, 38, 47, 0.5);
+  animation: fmtLinePulseCrimson 2.8s infinite ease-in-out;
+}
 
-@keyframes fmtWavePulse {
-  0% { height: 25%; opacity: 0.4; }
-  100% { height: 100%; opacity: 1; }
+.fmt-card:hover .fmt-line.crimson-line {
+  width: 65px;
+  box-shadow: 0 0 16px rgba(200, 38, 47, 0.9);
+}
+
+@keyframes fmtLinePulseGold {
+  0%, 100% {
+    width: 38px;
+    opacity: 0.75;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.35);
+  }
+  50% {
+    width: 52px;
+    opacity: 1;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.75);
+  }
+}
+
+@keyframes fmtLinePulseCrimson {
+  0%, 100% {
+    width: 38px;
+    opacity: 0.75;
+    box-shadow: 0 0 8px rgba(200, 38, 47, 0.4);
+  }
+  50% {
+    width: 52px;
+    opacity: 1;
+    box-shadow: 0 0 14px rgba(200, 38, 47, 0.85);
+  }
 }
 
 .fmt-card-content p {

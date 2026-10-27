@@ -89,7 +89,6 @@ const { artist } = Astro.props;
         <span class="fmt-kicker">Formatos de Actuación</span>
         <h2 class="fmt-title">
           Experiencias Sonoras
-          <span class="fmt-title-sub">Bespoke</span>
         </h2>
       </div>
       <div class="formats-header-right">
@@ -111,10 +110,7 @@ const { artist } = Astro.props;
           )}
           <div class="fmt-card-content">
             <h3>{fmt.title}</h3>
-            <div class={`fmt-soundwave ${fmt.pillStyle === 'crimson' ? 'crimson-wave' : ''}`}>
-              <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-              <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-            </div>
+            <div class={`fmt-line ${fmt.pillStyle === 'crimson' ? 'crimson-line' : ''}`}></div>
             <p>{fmt.description}</p>
             <a href={`https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(fmt.waMessage)}`} target="_blank" class={`fmt-card-cta ${fmt.pillStyle === 'crimson' ? 'fmt-cta-crimson' : ''}`}>
               {fmt.cta}
