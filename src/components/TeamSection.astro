@@ -19,7 +19,6 @@ import { assetUrl, siteLink } from '../utils/paths';
 
     {artists.map((artist) => (
       <a href={siteLink(`/artistas/${artist.slug}`)} class="team-card reveal d1" id="teamCard" tabindex="0" style="text-decoration: none; color: inherit; cursor: pointer; display: grid;">
-        <canvas id="teamCanvas" class="team-canvas"></canvas>
         <div class="team-media-wrap">
           <img src={assetUrl(artist.avatar)} alt={artist.name} loading="lazy" decoding="async" width="640" height="640" />
           <div class="team-overlay"></div>
@@ -39,93 +38,3 @@ import { assetUrl, siteLink } from '../utils/paths';
     </div>
   </div>
 </section>
-
-<script>
-  // Canvas de partículas doradas optimizado con IntersectionObserver
-  const card = document.getElementById('teamCard');
-  const canvas = document.getElementById('teamCanvas') as HTMLCanvasElement | null;
-  if (card && canvas) {
-    const ctx = canvas.getContext('2d');
-    let particles: any[] = [];
-    let isVisible = false;
-    let animId: number | null = null;
-
-    function resize() {
-      if (!card || !canvas) return;
-      canvas.width = card.offsetWidth;
-      canvas.height = card.offsetHeight;
-    }
-    window.addEventListener('resize', resize, { passive: true });
-    setTimeout(resize, 100);
-
-    class Particle {
-      x = 0; y = 0; size = 0; speedY = 0; speedX = 0; alpha = 0; color = '';
-      constructor() { this.reset(); }
-      reset() {
-        if (!canvas) return;
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 20;
-        this.size = Math.random() * 3.2 + 1;
-        this.speedY = Math.random() * 1.4 + 0.8;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.alpha = Math.random() * 0.7 + 0.3;
-        this.color = Math.random() > 0.4 ? '#d4af37' : '#f5e6d3';
-      }
-      update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        this.alpha -= 0.005;
-        if (this.alpha <= 0 || this.y < -10) this.reset();
-      }
-      draw() {
-        if (!ctx) return;
-        ctx.save();
-        ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    for (let i = 0; i < 35; i++) {
-      particles.push(new Particle());
-    }
-
-    function animate() {
-      if (!isVisible || !ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      animId = requestAnimationFrame(animate);
-    }
-
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (!isVisible) {
-              isVisible = true;
-              animId = requestAnimationFrame(animate);
-            }
-          } else {
-            isVisible = false;
-            if (animId) {
-              cancelAnimationFrame(animId);
-              animId = null;
-            }
-          }
-        });
-      }, { threshold: 0.05 });
-      io.observe(card);
-    } else {
-      isVisible = true;
-      animate();
-    }
-  }
-</script>
