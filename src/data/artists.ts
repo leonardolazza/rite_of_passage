@@ -107,7 +107,7 @@ export const artists: ArtistProfile[] = [
       {
         number: '03',
         title: 'DJ Set Sax Live',
-        description: 'Experiencia musical compuesta íntegramente a medida. Formación instrumental personalizada y ensamble exclusivo para la ocasión.',
+        description: 'Una experiencia inmersiva que va más allá de la cabina tradicional. A través de bases rítmicas sólidas e intervenciones melódicas en directo, la presencia del saxo aporta dinámica, organicidad y una vibra distintiva que conecta de forma inmediata con la pista.',
         image: '/assets/joah/joa_saxo_17.webp',
         cta: 'Consultar Formato DJ Set Sax Live ↗',
         waMessage: 'Hola Joa / Rite of Passage, quisiera consultar disponibilidad para el formato *DJ Set Sax Live*.'
